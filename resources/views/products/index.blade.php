@@ -176,7 +176,6 @@
 </head>
 <body>
 
-    <!-- Header -->
     <div class="header">
         <div class="nav">
             <a href="#">Home</a>
@@ -187,14 +186,12 @@
     </div>
 
     <div class="container">
-        <!-- Banner Persegi Panjang -->
         <a href="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" target="_blank" class="banner">
             <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Promo Spesial Bulan Ini">
         </a>
 
         <h2>All Produk</h2>
 
-        <!-- Gambar 3 Sejajar -->
         <div class="image-row">
             <div class="image-item">
                 <a href="{{ route('product.detail', ['id' => 1]) }}">
