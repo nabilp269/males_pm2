@@ -191,39 +191,13 @@
         </a>
 
         <h2>All Produk</h2>
-
-        <div class="image-row">
-            <div class="image-item">
-                <a href="{{ route('product.detail', ['id' => 1]) }}">
-                    <img src="https://asset.kompas.com/crops/GLtNe54eeZHCZkBFnlO6-zKm7bU=/0x292:1000x959/1200x800/data/photo/2021/08/02/61081f8d3a20b.jpg" alt="Kue 1">
-                    <p>Nama Kue 1</p>
-                    <p class="price">Rp 50.000</p>
-                </a>
-            </div>
-            
-            <div class="image-item">
-                <a href="#">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLCWXZ-FWXFmlZh6a_M9XMhv9IxroSVMYyyw&s" alt="Kue 2">
-                    <p>Nama Kue 2</p>
-                    <p class="price">Rp 60.000</p>
-                </a>
-            </div>
-            <div class="image-item">
-                <a href="#">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyeGHTMqqWyxSIB-uvbUmCrsuNv6RNXDxlhg&s" alt="Kue 3">
-                    <p>Nama Kue 3</p>
-                    <p class="price">Rp 70.000</p>
-                </a>
-            </div>
-        </div>
             
         <div class="products">
             @foreach($products as $product)
                 <div class="product">
-                    <a href="#">
+                    <a href="{{ route('product.detail', $product->id) }}">
                         <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
                         <h3>{{ $product->name }}</h3>
-                        <p>{{ $product->description }}</p>
                         <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                     </a>
                 </div>
@@ -242,5 +216,6 @@
         </div>
     </footer>
 
+    
 </body>
 </html>

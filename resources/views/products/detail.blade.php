@@ -4,26 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Detail Produk</title>
-        
-        @extends('layouts.app')
-
-    @section('content')
-    <div class="container">
-        <div class="product-detail">
-            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-            <h2>{{ $product->name }}</h2>
-            <p>{{ $product->description }}</p>
-            <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
-
-            <div class="buttons">
-                <a href="{{ route('home') }}" class="back">Kembali</a>
-                <a href="#" class="buy-now">Beli Sekarang</a>
-            </div>
-        </div>
-    </div>
-    @endsection
-
-    @push('styles')
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -109,23 +89,22 @@
             background-color: #495057;
         }
     </style>
-    @endpush
 
     </head>
     <body>
 
         <div class="container">
             <div class="product-detail">
-                <img src="https://asset.kompas.com/crops/GLtNe54eeZHCZkBFnlO6-zKm7bU=/0x292:1000x959/1200x800/data/photo/2021/08/02/61081f8d3a20b.jpg" alt="Kue 1">
-                <h2>Nama Kue 1</h2>
-                <p>Lezat dan dibuat dengan bahan berkualitas tinggi. Cocok untuk segala acara.</p>
-                <p class="price">Rp 50.000</p>
+                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                <h2>{{ $product->name }}</h2>
+                <p>{{ $product->description }}</p>
+                <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                 
                 <div class="buttons">
-                    <a href="index.html" class="back">Kembali</a>
+                    <a href="{{ route('home') }}" class="back">Kembali</a>
                     <a href="#" class="buy-now">Beli Sekarang</a>
                 </div>
-            </div>
+            </div>      
         </div>
 
     </body>

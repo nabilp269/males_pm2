@@ -14,8 +14,12 @@ class ProductController extends Controller
     }
 
     public function show($id) {
+        if (!is_numeric($id)) {
+            abort(404);
+        }
         $product = Product::findOrFail($id);
-        return view('product.detail', compact('product'));
+        return view('products.detail', compact('product'));
     }
+    
     
 }
