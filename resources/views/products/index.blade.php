@@ -7,170 +7,106 @@
 
 <style>                         
     body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #fafafa;
-        color: #333;
-        overflow-x: hidden;
-    }
-    
-    .container {
-        width: 90%;
-        margin: auto;
-        text-align: center;
-    }
-    
-    .header {
-        width: 100%;
-        background-color: #ff9900;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .nav a {
-        margin: 0 15px;
-        text-decoration: none;
-        color: #fff;
-        font-weight: bold;
-        transition: color 0.3s ease-in-out;
-    }
-    
-    .nav a:hover {
-        color: #ff5733;
-    }
-    
-    .banner {
-        width: 100%;
-        height: 120px;
-        margin: 20px 0;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    
-    .banner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .products {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 25px;
-        padding: 30px 0;
-    }
-    
-    .product {
-        background: white;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .product img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 8px;
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .product:hover img {
-        transform: scale(1.1);
-    }
-    
-    .product h3 {
-        margin: 10px 0;
-        font-size: 20px;
-        color: #333;
-    }
-    
-    .product p {
-        font-size: 14px;
-        color: #777;
-    }
-    
-    .product .price {
-        font-weight: bold;
-        color: black;
-        font-size: 18px;
-        text-decoration: none; 
-    }
-    
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 15px 0;
-        margin-top: 30px;
-    }
-    
-    .footer-container {
-        width: 90%;
-        margin: auto;
-    }
-    
-    .social-media a {
-        color: #ffcc00;
-        text-decoration: none;
-        margin: 0 10px;
-        transition: color 0.3s;
-    }
-    
-    .social-media a:hover {
-        color: #ff5733;
-    }
-    
-    .image-row {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0;
-        gap: 15px;
-    }
-    
-    .image-item {
-        width: 32%;
-        text-align: center;
-        background: #fff;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .image-item:hover {
-        transform: translateY(-5px);
-    }
-    
-    .image-item a {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-    }
-    
-    .image-item a img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 8px;
-        transition: transform 0.3s ease;
-    }
-    
-    .image-item:hover img {
-        transform: scale(1.05);
-    }
-    
-    .image-item a .price {
-        font-weight: bold;
-        color: black;
-        font-size: 18px;
-    }
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    background-color: #2ecc71;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: #27ae60;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+.product h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.product p.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+}
+
+.social-media a {
+    color: #2ecc71;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #27ae60;
+}
+
 </style>
     
 </head>
@@ -182,6 +118,7 @@
             <a href="#">All Produk</a>
             <a href="#">Tentang Kami</a>
             <a href="#">Kontak</a>
+            <a href="{{ route('product.create') }}">Tambah Product</a>
         </div>
     </div>
 
