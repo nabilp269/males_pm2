@@ -40,6 +40,7 @@
 
 .nav a:hover {
     color: #27ae60;
+    text-decoration: none; 
 }
 
 .banner img {
@@ -98,14 +99,25 @@ footer {
 
 .social-media a {
     color: #2ecc71;
-    text-decoration: none;
+    text-decoration: none; 
     margin: 0 10px;
     transition: color 0.3s;
 }
 
 .social-media a:hover {
     color: #27ae60;
+    text-decoration: none;
 }
+
+.product a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.product a:hover {
+    text-decoration: none; 
+}
+
 
 </style>
     
@@ -115,10 +127,10 @@ footer {
     <div class="header">
         <div class="nav">
             <a href="#">Home</a>
-            <a href="#">All Produk</a>
+            <a href="{{ route('admin.allproduk') }}">All Produk</a>
             <a href="#">Tentang Kami</a>
             <a href="#">Kontak</a>
-            <a href="{{ route('product.create') }}">Tambah Product</a>
+            <a href="{{ route('admin.create') }}">Tambah Product</a>
         </div>
     </div>
 
@@ -127,12 +139,12 @@ footer {
             <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Promo Spesial Bulan Ini">
         </a>
 
-        <h2>All Produk</h2>
+        <h2>Best Produk</h2>
             
         <div class="products">
             @foreach($products as $product)
                 <div class="product">
-                    <a href="{{ route('product.detail', $product->id) }}">
+                    <a href="{{ route('admin.detail', $product->id) }}">
                         <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
                         <h3>{{ $product->name }}</h3>
                         <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
