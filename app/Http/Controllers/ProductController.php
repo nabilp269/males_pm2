@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -29,73 +28,82 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'price' => 'required|numeric',
-        'description' => 'nullable|string',
-        'image_url' => 'nullable|url', // Hanya menerima URL gambar
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'description' => 'nullable|string',
+            'image_url' => 'nullable|url',
+        ]);
 
-    $imagePath = 'default-product.jpg'; // Gunakan gambar default jika tidak ada URL
+        $imagePath = $request->filled('image_url') ? $request->image_url : 'default-product.jpg';
 
-    if ($request->filled('image_url')) {
-        // Jika user mengisi URL, gunakan URL tersebut
-        $imagePath = $request->image_url;
+        Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $imagePath,
+        ]);
+
+        return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
     }
 
-    Product::create([
-        'name' => $request->name,
-        'price' => $request->price,
-        'description' => $request->description,
-        'image' => $imagePath, // Simpan URL gambar
-    ]);
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
 
-    return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
-}
-
-public function destroy($id) {
-    $product = Product::findOrFail($id);
-    $product->delete();
-
-    return redirect()->route('home')->with('success', 'Produk berhasil dihapus!');
-}
-
-
-public function edit($id)
-{
-    $product = Product::findOrFail($id);
-    return view('admin.edit', compact('product'));
-}
-
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'price' => 'required|numeric',
-        'image_url' => 'nullable|url',
-    ]);
-
-    $product = Product::findOrFail($id);
-    $product->name = $request->name;
-    $product->description = $request->description;
-    $product->price = $request->price;
-
-    if ($request->filled('image_url')) {
-        $imagePath = $request->image_url;
+        return redirect()->route('admin.index')->with('success', 'Produk berhasil dihapus!');
     }
 
-    $product->save();
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.edit', compact('product'));
+    }
 
-    return redirect()->route('home')->with('success', 'Produk berhasil diperbarui!');
-}
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'image_url' => 'nullable|url',
+        ]);
 
-public function Allproduk()
-{
-    $products = Product::all();
-    return view('admin.allproduk', compact('products'));
-}
+        $product = Product::findOrFail($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
 
+        if ($request->filled('image_url')) {
+            $product->image = $request->image_url; // Memastikan image diperbarui
+        }
+
+        $product->save();
+
+        return redirect()->route('admin.index')->with('success', 'Produk berhasil diperbarui!');
+    }
+
+    public function allProduk()
+    {
+        $products = Product::all();
+        return view('admin.allproduk', compact('products'));
+    }
+
+    public function tentang()
+    {
+        return view('admin.tentang');
+    }
+
+    public function Kontak() {
+        return view('admin.kontak');
+    }
+    
+    public function sendContact(Request $request) {
+        // Proses pengiriman email atau penyimpanan data kontak
+        return back()->with('success', 'Pesan Anda telah dikirim!');
+    }
+    
 
 }
