@@ -6,24 +6,20 @@
     <title>Kontak Kami</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ffcc00, #ff9800);
-            color: #333;
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* Memberikan ruang agar konten tidak tertutup navbar */
         }
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             background: #ffcc00;
             padding: 15px 0;
             text-align: center;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            z-index: 1000;
         }
         .nav {
             display: flex;
@@ -40,13 +36,9 @@
         .nav a:hover, .nav a.active {
             background-color: rgba(255, 255, 255, 0.3);
         }
-        .container {
-            width: 40%;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+        .content {
+            padding: 20px;
+            height: 2000px; /* Untuk simulasi halaman panjang */
         }
         h2 {
             text-align: center;

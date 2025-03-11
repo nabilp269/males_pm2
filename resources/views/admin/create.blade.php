@@ -212,10 +212,6 @@
         </div>
     </div>
 
-    <div class="container mt-5">
-        <div class="back-link">
-            <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary">← Kembali ke Home</a>
-        </div>
         
         <h2>Tambah Produk</h2>
 
@@ -251,8 +247,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="image" class="form-label">Link Gambar Produk</label>
-                <input type="url" class="form-control" id="image" name="image" value="{{ old('image') }}" placeholder="Masukkan URL gambar" required>
+                <label for="image_url" class="form-label">Link Gambar Produk</label>
+                <input type="url" class="form-control" id="image_url" name="image_url" value="{{ old('image_url') }}" placeholder="Masukkan URL gambar" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Tambah Produk</button>

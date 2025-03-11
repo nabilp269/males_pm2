@@ -128,12 +128,6 @@ details summary {
         </div>
 
 <div class="container mx-auto px-4 py-8">
-    <!-- Tombol Home -->
-    <div class="mb-4">
-        <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
-            Home
-        </a>
-    </div>
 
     <div class="bg-yellow-200 p-6 rounded-lg shadow-md text-center">
         <h1 class="text-3xl font-bold">TENTANG KAMI</h1>

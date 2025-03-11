@@ -96,7 +96,7 @@
 
                 <button type="submit">Simpan Perubahan</button>
             </form>
-            <a href="{{ route('home') }}" class="back">Batal</a>
+            <a href="{{ route('admin.allproduk') }}" class="back">Batal</a>
         </div>
     </div>
 

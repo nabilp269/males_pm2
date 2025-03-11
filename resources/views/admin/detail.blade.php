@@ -125,9 +125,9 @@
             <h2>{{ $product->name }}</h2>
             <p>{{ $product->description }}</p>
             <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
-            
+          
             <div class="buttons">
-                <a href="{{ route('home') }}" class="back">Kembali</a>
+                <a href="{{ route('admin.allproduk') }}" class="back">Kembali</a>
                 <a href="#" class="buy-now">Beli Sekarang</a>
                 <a href="{{ route('admin.edit', $product->id) }}" class="edit">Edit</a>
                 <form action="{{ route('admin.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');">

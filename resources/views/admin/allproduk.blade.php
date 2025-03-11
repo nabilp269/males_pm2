@@ -100,7 +100,7 @@
     </div>
 
     <div class="container mt-4">
-        <a href="{{ route('home') }}" class="home-button mb-3 d-inline-block">Home</a>
+    
         <h2 class="mb-4">All Products</h2>
         <div class="row">
             @foreach($products as $product)

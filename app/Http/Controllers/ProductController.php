@@ -29,20 +29,23 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+       
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'nullable|string',
-            'image_url' => 'nullable|url',
+            'image_url' => 'nullable|url', // Sesuai dengan input di form
         ]);
-
-        $imagePath = $request->filled('image_url') ? $request->image_url : 'default-product.jpg';
-
+    
+        // Gunakan gambar default jika tidak ada URL
+        $imagePath = $request->image_url ?? 'default-product.jpg';
+    
+        // Simpan produk ke database
         Product::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
-            'image' => $imagePath,
+            'image' => $imagePath, // Menggunakan image_url dari form jika tersedia
         ]);
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
