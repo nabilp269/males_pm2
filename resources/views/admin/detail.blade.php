@@ -128,7 +128,7 @@
           
             <div class="buttons">
                 <a href="{{ route('admin.allproduk') }}" class="back">Kembali</a>
-                <a href="#" class="buy-now">Beli Sekarang</a>
+                <a href="{{ route('admin.checkout') }}" class="buy-now">Beli Sekarang</a>
                 <a href="{{ route('admin.edit', $product->id) }}" class="edit">Edit</a>
                 <form action="{{ route('admin.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');">
                     @csrf

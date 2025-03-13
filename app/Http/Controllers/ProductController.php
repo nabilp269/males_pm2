@@ -107,6 +107,37 @@ class ProductController extends Controller
         // Proses pengiriman email atau penyimpanan data kontak
         return back()->with('success', 'Pesan Anda telah dikirim!');
     }
-    
 
+    /* cekout */
+
+    public function checkout()
+    {
+        $products = Product::all();
+        return view('admin.checkout', compact('products'));
+    }
+
+    public function processCheckout(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+        ]);
+
+        // Simpan gambar bukti pembayaran
+        $path = $request->file('image')->store('payment_proofs', 'public');
+
+        // Simpan order ke database
+        Product::create([
+            'product_id' => $request->product_id,
+            'image' => $path,
+        ]);
+
+        return redirect()->route('history')->with('success', 'Pembelian berhasil!');
+    }
+
+    public function history()
+    {
+        $orders = Product::with('product')->get();
+        return view('history', compact('orders'));
+    }
 }

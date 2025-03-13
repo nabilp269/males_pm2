@@ -31,3 +31,8 @@ Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('admin
 /* kontak */
 Route::get('/admin/kontak', [ProductController::class, 'Kontak'])->name('admin.kontak');
 Route::post('/admin/kontak/send', [ProductController::class, 'sendContact'])->name('admin.kontak.send');
+
+/* Cekout */
+Route::get('/checkout{id}', [ProductController::class, 'checkout'])->name('admin.checkout');
+Route::post('/checkout{id}', [ProductController::class, 'processCheckout'])->name('processCheckout');
+Route::get('/history', [ProductController::class, 'history'])->name('admin.history');
