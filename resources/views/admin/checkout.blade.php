@@ -12,21 +12,21 @@
             background-color: #f9f9f9;
         }
         .container {
-            max-width: 480px;
             margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
+            background-color: #f9f9f9;
         }
         .checkout-header {
             padding: 15px;
-            border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
             background-color: #fff;
+            border-bottom: 1px solid #eee;
         }
         .back-button {
             margin-right: 15px;
-            font-size: 20px;
+            font-size: 24px;
+            color: #000;
+            text-decoration: none;
         }
         .checkout-title {
             font-size: 18px;
@@ -34,87 +34,126 @@
         }
         .item-card {
             display: flex;
-            background-color: #f9f5f0;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 8px;
+            background-color: #fff;
+            padding: 16px;
+            align-items: center;
+            border-bottom: 1px solid #eee;
         }
         .item-image {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            border-radius: 5px;
-            margin-right: 15px;
+            border-radius: 4px;
+            margin-right: 16px;
         }
         .item-details {
             flex-grow: 1;
         }
         .item-name {
             font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 16px;
+            margin-bottom: 6px;
         }
         .item-price {
             color: #ff6600;
             font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 16px;
+            margin-bottom: 6px;
         }
         .item-rating {
-            color: #ff9800;
-            margin-bottom: 5px;
+            color: #ffcb00;
+            margin-bottom: 8px;
         }
         .item-controls {
             display: flex;
             align-items: center;
+            margin-top: 5px;
+        }
+        .quantity-btn {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            font-weight: bold;
+            color: #999;
+        }
+        .quantity {
+            margin: 0 12px;
         }
         .checkout-content {
-            padding: 10px;
-            background-image: linear-gradient(#fce8e8 1px, transparent 1px),
-                            
-            background-size: 20px 20px;
+            background-color: #f9f9f9;
         }
         .summary-section {
-            margin-top: 10px;
-            padding: 10px;
-            color: #888;
+            margin-top: 1px;
+            background-color: #fff;
+            color: #555;
         }
         .summary-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            padding: 16px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .summary-row:last-child {
+            border-bottom: none;
         }
         .price-column {
             text-align: right;
             color: #ff6600;
             font-weight: bold;
         }
-        .payment-method {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border-top: 1px solid #eee;
-            align-items: center;
+        .section-title {
+            padding: 14px 16px;
+            color: #888;
+            background-color: #f0f0f0;
+            font-size: 14px;
+            border-bottom: 1px solid #e5e5e5;
         }
         .expand-icon {
             font-size: 20px;
+            color: #999;
         }
         .checkout-footer {
             display: flex;
             justify-content: space-between;
-            padding: 15px;
-            border-top: 1px solid #eee;
+            padding: 16px;
             background-color: #fff;
+            border-top: 1px solid #eee;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 480px;
         }
         .total-amount {
             font-weight: bold;
             color: #ff6600;
+            font-size: 18px;
+            margin-top: 4px;
         }
         .checkout-button {
             background-color: #fff;
-            color: #000;
+            color: #222;
             border: 1px solid #ddd;
-            padding: 8px 15px;
-            border-radius: 5px;
+            padding: 10px 18px;
+            border-radius: 6px;
             cursor: pointer;
+            font-weight: bold;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+            padding-top: 16px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
         }
     </style>
 </head>
@@ -122,54 +161,64 @@
     <div class="container">
         <!-- Header -->
         <div class="checkout-header">
-            <div class="back-button" ><a href="">←</a></div>
-            <div class="checkout-title">Checkout</div>
-        </div>
-
-
-        <!-- Item Card -->
-        <form action="{{ route('processCheckout', $product->id) }}"  method="POST">
-        @csrf
-        <div class="item-card">
-        <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="item-image">
-            <div class="item-details">
-                <div class="item-name">{{ $product->name }}</div>
-                <div class="item-price">Rp {{ number_format($product->price, 0, ',', '.') }}/div>
-                <div class="item-rating">★★★★★</div>
-                <div class="item-controls">
-                    <span>-</span>
-                    <span style="margin: 0 10px;">1</span>
-                    <span>+</span>
-                </div>
-            </div>
-        </div>
-    </form>
-        <!-- Checkout Content with Grid Background -->
-        <div class="checkout-content">
-            <!-- Summary Section -->
-            <div class="summary-section">
-                <div class="summary-row">
-                    <div>Pesan Pertama</div>
-                </div>
-                <div class="summary-row">
-                    <div>Total Pesanan (1)</div>
-                    <div class="price-column">Rp 15.000</div>
-                </div>
-                <div class="summary-row">
-                    <div>Metode Pembayaran</div>
-                    <div class="expand-icon">∧</div>
-                </div>
-            </div>
+            <a href="{{ route('home') }}" class="back-button">←</a>
+            <div class="checkout-title">Chackout</div>
         </div>
         
-        <!-- Footer -->
-        <div class="checkout-footer">
-            <div>
-                <div>Total</div>
-                <div class="total-amount">Rp 15.000</div>
+        <form action="{{ route('processCheckout', $product->id) }}" method="POST">
+            @csrf
+
+            <!-- Item Card -->
+            <div class="item-card">
+                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="item-image">
+                <div class="item-details">
+                    <div class="item-name">{{ $product->name }}</div>
+                    <div class="item-price">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
+                    <div class="item-rating">★★★★★</div>
+                    <div class="item-controls">
+                        <div class="quantity-btn">-</div>
+                        <div class="quantity">1</div>
+                        <div class="quantity-btn">+</div>
+                    </div>
+                </div>
             </div>
-            <button class="checkout-button">Checkout (1)</button>
-        </div>
-    </div>
+            
+            <!-- Empty space -->
+            <div style="height: 10px;"></div>
+            
+            <!-- Checkout Content -->
+            <div class="checkout-content">
+                <!-- Pesan Penjual Section -->
+                <div class="section-title">Pesan Penjual</div>
+                
+                <!-- Total Pesanan Section -->
+                <div class="section-title">Total Pesanan (1)</div>
+                <div class="summary-section">
+                    <div class="summary-row">
+                        <div>Total Harga (1 barang)</div>
+                        <div class="price-column">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
+                    </div>
+                </div>
+                
+                <!-- Metode Pembayaran Section -->
+                <div class="section-title">Metode Pembayaran</div>
+                <div class="summary-section">
+                    <div class="summary-row">
+                        <div>Metode Pembayaran</div>
+                        <div class="expand-icon">∧</div>
+                    </div>
+                </div>                
+            </div>
+            
+            <!-- Footer -->
+            <div class="checkout-footer">
+                <div>
+                    <div style="color: #888;">Total</div>
+                    <div class="total-amount">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
+                </div>
+                <button type="submit" class="checkout-button">Chackout (1)</button>
+            </div>
+        </form>
+    </div> 
 </body>
 </html>
