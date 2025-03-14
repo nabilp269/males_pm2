@@ -207,7 +207,7 @@
             <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Promo Spesial Bulan Ini">
         </div>
 
-        <h2>Bast Products</h2>
+        <h2>Best Products</h2>
         <div class="row">
             @foreach($products as $product)
                 <div class="col-md-4 mb-4">

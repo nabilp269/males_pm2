@@ -61,6 +61,7 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        
         $product = Product::findOrFail($id);
         return view('admin.edit', compact('product'));
     }
@@ -112,8 +113,8 @@ class ProductController extends Controller
 
     public function checkout()
     {
-        $products = Product::all();
-        return view('admin.checkout', compact('products'));
+        $product = Product::findOrFail($id);
+        return view('admin.checkout', compact('product'));
     }
 
     public function processCheckout(Request $request)
