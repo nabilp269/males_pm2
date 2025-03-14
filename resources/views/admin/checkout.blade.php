@@ -128,8 +128,8 @@
 
 
         <!-- Item Card -->
-        <form action="{{ route('processCheckout', $product->id) }} "  method="POST">
-        @foreach ($products as $product)
+        <form action="{{ route('processCheckout', $product->id) }}"  method="POST">
+        @csrf
         <div class="item-card">
         <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="item-image">
             <div class="item-details">
@@ -143,8 +143,7 @@
                 </div>
             </div>
         </div>
-        @endforeach
-        </form>
+    </form>
         <!-- Checkout Content with Grid Background -->
         <div class="checkout-content">
             <!-- Summary Section -->

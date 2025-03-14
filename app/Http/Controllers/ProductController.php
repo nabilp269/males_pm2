@@ -111,7 +111,7 @@ class ProductController extends Controller
 
     /* cekout */
 
-    public function checkout()
+    public function checkout($id)
     {
         $product = Product::findOrFail($id);
         return view('admin.checkout', compact('product'));
