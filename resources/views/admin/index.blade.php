@@ -40,6 +40,7 @@
             <a href="{{ route('admin.allproduk') }}">All Produk</a>
             <a href="{{ route('admin.tentang') }}">Tentang kami</a>
             <a href="{{ route('admin.kontak') }}">Kontak</a>
+            <a href="{{ route('admin.create') }}">Tambah Product</a>
         </div>
     </div>
 

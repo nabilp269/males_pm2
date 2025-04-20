@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Produk</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>
 <body>
@@ -39,33 +40,48 @@
             <a href="{{ route('admin.allproduk') }}">All Produk</a>
             <a href="{{ route('admin.tentang') }}">Tentang kami</a>
             <a href="{{ route('admin.kontak') }}">Kontak</a>
+            <a href="{{ route('admin.create') }}">Tambah Product</a>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-kontak">
         <h2>Edit Produk</h2>
         <div class="form-container">
-            <form action="{{ route('admin.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="form">
                 @csrf
                 @method('PUT')
 
-                <label for="name">Nama Produk:</label>
-                <input type="text" id="name" name="name" value="{{ $product->name }}" required>
+                <label for="name" class="form-label">Nama Produk:</label>
+                <input type="text" id="name" name="name"class="form-control" value="{{ $product->name }}" required>
 
-                <label for="description">Deskripsi:</label>
-                <textarea id="description" name="description">{{ $product->description }}</textarea>
+                <label for="description" class="form-label">Deskripsi:</label>
+                <textarea id="description" name="description" class="form-control">{{ old('description', $product->description) }}</textarea>
 
-                <label for="price">Harga:</label>
-                <input type="number" id="price" name="price" value="{{ $product->price }}" required>
+                <label for="price" class="form-label">Harga:</label>
+                <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}"  required>
 
-                <label for="image_url">Link Gambar Produk:</label>
-                <input type="url" id="image_url" name="image_url" value="{{ $product->image }}">
-
-                <button type="submit">Simpan Perubahan</button>
+                <label for="image_url" class="form-label">Link Gambar Produk:</label>
+                <input type="url" id="image_url" name="image_url" class="form-control" value="{{ $product->image }}">
+                
+                <button type="submit" class="btn btn-primary w-100 mt-3">Simpan Perubahan</button>
+                <a href="{{ route('admin.detail', $product->id) }}" class="btn btn-secondary mt-3">Batal</a>
+                
             </form>
-            <a href="{{ route('admin.detail', $product->id) }}" class="back">Batal</a>
+            
         </div>
     </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 All Amazing Bread & Cake. All Rights Reserved.</p>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

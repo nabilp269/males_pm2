@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-
 </head>
 
-<body class="bg-gray-100">
+<body >
 
     <div class="header">
         <div class="logo">KB</div>
@@ -23,6 +20,7 @@
             <div class="icon cart-icon">&#128722;</div>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
+                <!-- Instagram Icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -30,6 +28,7 @@
                 </svg>
             </div>
             <div class="icon whatsapp-icon">
+                <!-- WhatsApp Icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #25D366;">
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
@@ -44,43 +43,52 @@
             <a href="{{ route('admin.allproduk') }}">All Produk</a>
             <a href="{{ route('admin.tentang') }}">Tentang kami</a>
             <a href="{{ route('admin.kontak') }}">Kontak</a>
+            <a href="{{ route('admin.create') }}">Tambah Product</a>
         </div>
     </div>
 
-<div class="container mx-auto px-4 py-8 ">
-
-    <div class="bg-yellow-200 p-6 rounded-lg shadow-md text-center">
-        <h1 class="text-3xl font-bold">TENTANG KAMI</h1>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-white p-6 rounded-lg shadow-lg">
-        <div>
-            <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Tentang Kami" class="">
+    <div class="container-tentang">
+        <div class="section-title">
+            <h1>TENTANG KAMI</h1>
         </div>
-        <div>
-            <h2 class="text-xl font-bold text-orange-600">Sejarah Kue Basah</h2>
-            <p class="text-gray-600">Kue basah</p>
-            <p class="mt-4 text-gray-800">
-                Kue Basah adalah jenis kue tradisional Indonesia yang memiliki tekstur lembut, moist (basah), dan biasanya tidak tahan lama karena tidak menggunakan pengawet. Kue ini sering disajikan dalam berbagai acara, seperti arisan, syukuran, atau sebagai camilan sehari-hari. Kue basah umumnya terbuat dari bahan-bahan alami seperti tepung beras, tepung ketan, santan, gula, dan daun pandan untuk aroma.
-            </p>
-            <p class="mt-2 text-gray-800">
-                <strong>Ciri-ciri Kue Basah:</strong><br>
-                - Tekstur Lembut dan Basah: Karena menggunakan santan atau bahan lain yang membuatnya tetap lembab.<br>
-                - Tidak Tahan Lama: Biasanya hanya bertahan 1-2 hari karena tidak menggunakan pengawet.<br>
-                - Rasa Manis atau Gurih: Ada yang manis seperti kue lapis atau kue cucur, dan ada juga yang gurih seperti nagasari atau lemper.
-            </p>    
-            <div class="mt-4">
-                <details class="bg-gray-100 p-4 rounded-md mb-2">
-                    <summary class="font-bold cursor-pointer">VISI</summary>
-                    <p class="mt-2 text-gray-800">Menjadi toko Kue basah pilihan utama di Indonesia.</p>
-                </details>
-                <details class="bg-gray-100 p-4 rounded-md">
-                    <summary class="font-bold cursor-pointer">MISI</summary>
-                    <p class="mt-2 text-gray-800">Menyediakan Kue basah berkualitas dengan harga terjangkau dan pelayanan terbaik.</p>
-                </details>
+
+        <div class="about-section">
+            <div class="about-image">
+                <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Tentang Kami">
+            </div>
+            <div class="about-content">
+                <h2>Sejarah Kue Basah</h2>
+                <p class="highlight">Kue basah</p>
+                <p>Kue Basah adalah jenis kue tradisional Indonesia yang memiliki tekstur lembut, moist (basah), dan biasanya tidak tahan lama karena tidak menggunakan pengawet. Kue ini sering disajikan dalam berbagai acara, seperti arisan, syukuran, atau sebagai camilan sehari-hari. Kue basah umumnya terbuat dari bahan-bahan alami seperti tepung beras, tepung ketan, santan, gula, dan daun pandan untuk aroma.</p>
+                <p><strong>Ciri-ciri Kue Basah:</strong><br>
+                    - Tekstur Lembut dan Basah<br>
+                    - Tidak Tahan Lama<br>
+                    - Rasa Manis atau Gurih
+                </p>
+                <div class="details">
+                    <details>
+                        <summary>VISI</summary>
+                        <p>Menjadi toko Kue basah pilihan utama di Indonesia.</p>
+                    </details>
+                    <details>
+                        <summary>MISI</summary>
+                        <p>Menyediakan Kue basah berkualitas dengan harga terjangkau dan pelayanan terbaik.</p>
+                    </details>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 All Amazing Bread & Cake. All Rights Reserved.</p>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
