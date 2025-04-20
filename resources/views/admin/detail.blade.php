@@ -426,18 +426,19 @@
                     <span class="button-icon">&#8592;</span> Kembali
                 </a>
                 <a href="{{ route('admin.edit', $product->id) }}" class="edit">
-                    <span class="button-icon">✏️</span> Edit
+                    <span class="button-icon"></span> Edit
                 </a>
                 <form action="{{ route('admin.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');" style="display: inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="delete">
-                        <span class="button-icon">🗑️</span> Hapus
+                        <span class="button-icon"></span> Hapus
                     </button>
                 </form>
             </div>
             <button class="buy-button">
-                <a href=""><span class="button-icon">🛒</span> Pesan Sekarang </a>
+                <a href="{{ route('pesanan') }}">Pesan Sekarang</a>
+
             </button>
         </div>
     </div>
