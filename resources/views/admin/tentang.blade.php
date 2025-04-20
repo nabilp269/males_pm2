@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 
 </head>
@@ -45,14 +47,14 @@
         </div>
     </div>
 
-<div class="container mx-auto px-4 py-8">
+<div class="container mx-auto px-4 py-8 ">
 
     <div class="bg-yellow-200 p-6 rounded-lg shadow-md text-center">
         <h1 class="text-3xl font-bold">TENTANG KAMI</h1>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 bg-white p-6 rounded-lg shadow-lg">
         <div>
-            <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Tentang Kami" class="w-full rounded-lg shadow-md">
+            <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Tentang Kami" class="">
         </div>
         <div>
             <h2 class="text-xl font-bold text-orange-600">Sejarah Kue Basah</h2>
