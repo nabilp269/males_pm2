@@ -142,9 +142,10 @@ class ProductController extends Controller
         return view('history', compact('orders'));
     }
 
-    public function pesanan()
+    public function pesanan($id)
     {
-        return view('admin.pesanan'); // Pastikan view ini ada di resources/views/
+        $product = Product::findOrFail($id);
+        return view('admin.pesanan', compact('product')); // Pastikan view ini ada di resources/views/
     }
 
     public function storePesanan(Request $request)

@@ -27,7 +27,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('home')->with('success', 'Berhasil login!');
+            return redirect()->route('admin.index')->with('success', 'Berhasil login!');
         }
 
         return back()->withErrors(['email' => 'Email atau password salah!']);
@@ -35,7 +35,8 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        
+        dd(User::all());
+
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -50,7 +51,7 @@ class AuthController extends Controller
         ]);
 
 
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil, silakan login!');
+        return redirect()->route('admin.index')->with('success', 'Pendaftaran berhasil, silakan login!');
     }
 
     public function logout()

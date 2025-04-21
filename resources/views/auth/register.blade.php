@@ -236,6 +236,7 @@
         </div>
         <div class="form-container">
             <h1 class="login-heading">Register</h1>
+            
         <form action="{{ route('register') }}" method="POST">
                 @csrf
             <div class="input-group">

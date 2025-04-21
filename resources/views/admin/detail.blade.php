@@ -50,9 +50,7 @@
         </div>
         <div class="product-info">
             <h1 class="product-title">{{ $product->name }}</h1>
-            <div class="ratings">
-                ★★★★★
-            </div>
+        
             <div class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
             <p class="description">
                 {{ $product->description }}
@@ -60,11 +58,7 @@
             <p class="note">
                 * Terdapat perbedaan harga menyesuaikan dengan lokasi cabang, harga terendah berlaku di cabang Pusat Jogja dan sekitarnya.
             </p>
-            <div class="quantity-selector">
-                <div class="quantity-btn">-</div>
-                <div class="quantity">1</div>
-                <div class="quantity-btn">+</div>
-            </div>
+        
             <div class="buttons">
                 <a href="{{ route('admin.allproduk') }}" class="back">
                     <span class="button-icon">&#8592;</span> Kembali
@@ -81,7 +75,7 @@
                 </form>
             </div>
             <button class="buy-button">
-                <a href="{{ route('pesanan') }}">Pesan Sekarang</a>
+                <a href="{{ route('pesanan', $product->id) }}">Pesan Sekarang</a>
 
             </button>
         </div>

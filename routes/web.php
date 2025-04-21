@@ -29,7 +29,7 @@ Route::post('/checkout{id}', [ProductController::class, 'processCheckout'])->nam
 Route::get('/history', [ProductController::class, 'history'])->name('admin.history');
 
 // Halaman Pesanan
-Route::get('/pesanan', [ProductController::class, 'pesanan'])->name('pesanan');
+Route::get('/pesanan/{id}', [ProductController::class, 'pesanan'])->name('pesanan');
 Route::post('/pesanan', [ProductController::class, 'storePesanan'])->name('pesanan.store');
 
 // Parameter routes (diletakkan paling bawah agar tidak konflik)
