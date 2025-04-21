@@ -61,5 +61,17 @@
             @endforeach
         </div>
     </div>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 All Amazing Bread & Cake. All Rights Reserved.</p>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+    
 </body>
 </html>

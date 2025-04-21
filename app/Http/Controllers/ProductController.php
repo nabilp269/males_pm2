@@ -144,7 +144,7 @@ class ProductController extends Controller
 
     public function pesanan()
     {
-        return view('pesanan'); // Pastikan view ini ada di resources/views/
+        return view('admin.pesanan'); // Pastikan view ini ada di resources/views/
     }
 
     public function storePesanan(Request $request)
