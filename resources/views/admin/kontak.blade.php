@@ -3,92 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <title>Kontak Kami</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            padding-top: 60px; /* Memberikan ruang agar konten tidak tertutup navbar */
-        }
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #ffcc00;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            padding: 10px 15px;
-            transition: all 0.3s;
-        }
-        .nav a:hover, .nav a.active {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        .content {
-            padding: 20px;
-            height: 2000px; /* Untuk simulasi halaman panjang */
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-        .form-label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            margin-top: 5px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            background: #fff;
-            transition: all 0.3s;
-        }
-        .form-control:focus {
-            border-color: #ff9800;
-            outline: none;
-            box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
-        }
-        .btn-primary {
-            background-color: #ff9800;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #e68900;
-            transform: scale(1.05);
-        }
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            .nav {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    
 </head>
 <body>
     <div class="header">

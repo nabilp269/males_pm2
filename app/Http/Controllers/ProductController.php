@@ -81,7 +81,7 @@ class ProductController extends Controller
         $product->price = $request->price;
 
         if ($request->filled('image_url')) {
-            $product->image = $request->image_url; // Memastikan image diperbarui
+            $product->image = $request->image_url; 
         }
 
         $product->save();
@@ -141,23 +141,4 @@ class ProductController extends Controller
         $orders = Product::with('product')->get();
         return view('history', compact('orders'));
     }
-
-    public function pesanan()
-    {
-        return view('admin.pesanan'); // Pastikan view ini ada di resources/views/
-    }
-
-    public function storePesanan(Request $request)
-    {
-        $validated = $request->validate([
-            'nama' => 'required|string',
-            'produk' => 'required|string',
-            'jumlah' => 'required|integer|min:1',
-        ]);
-
-        // Contoh: hanya menampilkan data, nanti bisa kamu simpan ke DB
-        return redirect()->route('pesanan')->with('success', 'Pesanan berhasil dikirim!');
-    }
-
-
 }
