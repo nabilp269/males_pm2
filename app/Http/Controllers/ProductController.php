@@ -34,7 +34,8 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'nullable|string',
-            'image_url' => 'nullable|url', // Sesuai dengan input di form
+            'image_url' => 'nullable|url',
+            'stok' => 'required',
         ]);
     
         // Gunakan gambar default jika tidak ada URL
@@ -45,7 +46,8 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
-            'image' => $imagePath, // Menggunakan image_url dari form jika tersedia
+            'image' => $imagePath,
+            'stok'=>$request->stok,
         ]);
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
@@ -141,4 +143,24 @@ class ProductController extends Controller
         $orders = Product::with('product')->get();
         return view('history', compact('orders'));
     }
+
+    public function pesanan($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.pesanan', compact('product')); // Pastikan view ini ada di resources/views/
+    }
+
+    public function storePesanan(Request $request)
+    {
+        $validated = $request->validate([
+            'nama' => 'required|string',
+            'produk' => 'required|string',
+            'jumlah' => 'required|integer|min:1',
+        ]);
+
+        // Contoh: hanya menampilkan data, nanti bisa kamu simpan ke DB
+        return redirect()->route('pesanan')->with('success', 'Pesanan berhasil dikirim!');
+    }
+
+
 }

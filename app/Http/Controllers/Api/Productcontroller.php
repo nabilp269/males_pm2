@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -14,11 +15,14 @@ class Productcontroller extends Controller
     {
         try {
             $products = Product::all();
-            return response()->json([
-                'status' => 'success',
-                'code' => 200,
-                'product' => $products
-            ], 200);
+            // return response()->json([
+            //     'status' => 'success',
+            //     'code' => 200,
+            //     'product' => $products
+            // ], 200);
+
+            return ProductResource::collection($products);
+
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'fail',
@@ -31,12 +35,21 @@ class Productcontroller extends Controller
     public function show($id)
     {
         try {
+
+            // ->with('user,id,nama,alamat');
+            // untuk join tabel
+
             $product = Product::findOrFail($id);
-            return response()->json([
-                'status' => 'success',
-                'code' => 200,
-                'product' => $product
-            ], 200);
+
+            // return response()->json([
+            //     'status' => 'success',
+            //     'code' => 200,
+            //     'product' => $product
+            // ], 200);
+            
+            
+            return new ProductResource($product);
+
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'status' => 'fail',
@@ -54,14 +67,17 @@ class Productcontroller extends Controller
 
     public function store(Request $request)
     {
+  
         try {
+            
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
                 'price' => 'required|numeric',
                 'description' => 'nullable|string',
                 'image_url' => 'nullable|url',
+                'stok' => "nullable|integer|min:0",
             ]);
-
+            
             $imagePath = $request->image_url ?? 'default-product.jpg';
 
             $product = Product::create([
@@ -69,7 +85,10 @@ class Productcontroller extends Controller
                 'price' => $request->price,
                 'description' => $request->description,
                 'image' => $imagePath,
+                'stok' => $request->stok,
             ]);
+
+     
 
             return response()->json([
                 'status' => 'success',
@@ -99,11 +118,12 @@ class Productcontroller extends Controller
                 'description' => 'sometimes|nullable|string',
                 'price' => 'sometimes|numeric',
                 'image_url' => 'sometimes|nullable|url',
+                'stok' => 'sometimes|integer|min:0',
             ]);
     
             $product = Product::findOrFail($id);
     
-            $product->update($request->only(['name', 'description', 'price', 'image_url']));
+            $product->update($request->only(['name', 'description', 'price', 'image_url','stok']));
     
             return response()->json([
                 'status' => 'success',

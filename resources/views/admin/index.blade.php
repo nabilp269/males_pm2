@@ -44,27 +44,28 @@
         </div>
     </div>
 
+    <main>
+        <div class="container">
+            <div class="banner">
+                <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Promo Spesial Bulan Ini">
+            </div>
 
-    <div class="container">
-        <div class="banner">
-            <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Promo Spesial Bulan Ini">
-        </div>
-
-        <h2>Best Products</h2>
-        <div class="row">
-            @foreach($products as $product)
-                <div class="col-md-4 mb-4">
-                    <div class="card" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
-                        <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
+            <h2>Best Products</h2>
+            <div class="row">
+                @foreach($products as $product)
+                    <div class="col-md-4 mb-4">
+                        <div class="card" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
+                            <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $product->name }}</h5>
+                                <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
+    </main>
 
     <footer>
         <div class="footer-container">

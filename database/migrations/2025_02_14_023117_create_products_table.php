@@ -6,17 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+  
     public function up()
 {
     Schema::create('products', function (Blueprint $table) {
         $table->id();
         $table->string('name');
-        $table->string('image'); // Simpan path gambar
+        $table->string('image');
         $table->string('description');
         $table->decimal('price', 10, 2);
+        $table->integer('stok');
         $table->timestamps();
     });
 }
