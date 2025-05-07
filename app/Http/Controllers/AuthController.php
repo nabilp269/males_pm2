@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -48,7 +49,11 @@ class AuthController extends Controller
             'email' => 'Email atau password salah!',
         ])->withInput($request->only('email', 'remember'));
 
+        
+
     }
+
+    
 
     public function register(Request $request)
     {
@@ -68,7 +73,7 @@ class AuthController extends Controller
         ->with('success', 'Berhasil login!');
     }
 
-    public function logout(Request $request)
+    public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
         
