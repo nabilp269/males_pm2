@@ -44,42 +44,44 @@
         </div>
     </div>
     <!-- Product Detail -->
-    <div class="product-container">
-        <div class="product-image">
-            <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
-        </div>
-        <div class="product-info">
-            <h1 class="product-title">{{ $product->name }}</h1>
-        
-            <div class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
-            <p class="description">
-                {{ $product->description }}
-            </p>
-            <p class="note">
-                * Terdapat perbedaan harga menyesuaikan dengan lokasi cabang, harga terendah berlaku di cabang Pusat Jogja dan sekitarnya.
-            </p>
-        
-            <div class="buttons">
-                <a href="{{ route('admin.allproduk') }}" class="back">
-                    <span class="button-icon">&#8592;</span> Kembali
-                </a>
-                <a href="{{ route('admin.edit', $product->id) }}" class="edit">
-                    <span class="button-icon"></span> Edit
-                </a>
-                <form action="{{ route('admin.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="delete">
-                        <span class="button-icon"></span> Hapus
-                    </button>
-                </form>
+    <main>
+        <div class="product-container">
+            <div class="product-image">
+                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
             </div>
-            <button class="buy-button">
-                <a href="{{ route('pesanan', $product->id) }}">Pesan Sekarang</a>
-
-            </button>
+            <div class="product-info">
+                <h1 class="product-title">{{ $product->name }}</h1>
+            
+                <div class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
+                <p class="description">
+                    {{ $product->description }}
+                </p>
+                </p>
+                <p class="note">
+                    * Terdapat perbedaan harga menyesuaikan dengan lokasi cabang, harga terendah berlaku di cabang Pusat Jogja dan sekitarnya.
+                </p>
+            
+                <div class="buttons">
+                    <a href="{{ route('admin.allproduk') }}" class="back">
+                        <span class="button-icon">&#8592;</span> Kembali
+                    </a>
+                    <a href="{{ route('admin.edit', $product->id) }}" class="edit">
+                        <span class="button-icon"></span> Edit
+                    </a>
+                    <form action="{{ route('admin.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete">
+                            <span class="button-icon"></span> Hapus
+                        </button>
+                    </form>
+                </div>
+                <button class="buy-button">
+                    <a href="{{ route('pesanan', $product->id) }}">Pesan Sekarang</a>
+                </button>
+            </div>
         </div>
-    </div>
+    </main>
 
     <footer>
         <div class="footer-container">

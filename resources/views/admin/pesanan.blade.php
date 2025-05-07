@@ -125,13 +125,13 @@
         <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
         <div class="info">
             <h3>{{ $product->name }}</h3>
-            <span id="hargaSatuan" data-harga="{{ $product->price }}" style="color: orange;">
+            <span id="hargaSatuan" data-harga="{{ $product->price }}"  data-stok="{{ $product->stok }}" style="color: orange;">
                 Rp {{ number_format($product->price, 0, ',', '.') }}
             </span>
             
         </div>
         <div class="qty">
-            <button onclick="updateQty(-1)">➖</button>
+            <button onclick="updateQty(-1)" >➖</button>
             <div id="jumlah">1</div>
             <button onclick="updateQty(1)">➕</button>
         </div>
@@ -172,8 +172,14 @@
 <script>
     let jumlah = 1;
     const hargaSatuan = parseInt(document.getElementById('hargaSatuan').dataset.harga);
+    const stok = parseInt(document.getElementById('hargaSatuan').dataset.stok)
 
     function updateQty(change) {
+
+        if (change > 0 && jumlah >= stok) {
+        jumlah = stok;
+        return; 
+    }
         jumlah += change;
         if (jumlah < 1) jumlah = 1;
 

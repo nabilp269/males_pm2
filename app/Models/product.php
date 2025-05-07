@@ -9,5 +9,11 @@ class product extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $fillable = ['name','image','description','price'];
+    protected $fillable = ['name','image','description','price','stok'];
+
+    // untuk mengjooin tabel
+    // public function user(): BeLongsTo{
+    //     return $this->belongsto(User::class,'foreign_key','other_key')
+    // } user terserah dan key asing sesuai dengan nama id join
+    
 }

@@ -44,33 +44,36 @@
         </div>
     </div>
 
-    <div class="container-kontak">
-        <h2>Edit Produk</h2>
-        <div class="form-container">
-            <form action="{{ route('admin.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="form">
-                @csrf
-                @method('PUT')
+    <main>
 
-                <label for="name" class="form-label">Nama Produk:</label>
-                <input type="text" id="name" name="name"class="form-control" value="{{ $product->name }}" required>
+        <div class="container-kontak">
+            <h2>Edit Produk</h2>
+            <div class="form-container">
+                <form action="{{ route('admin.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="form">
+                    @csrf
+                    @method('PUT')
 
-                <label for="description" class="form-label">Deskripsi:</label>
-                <textarea id="description" name="description" class="form-control">{{ old('description', $product->description) }}</textarea>
+                    <label for="name" class="form-label">Nama Produk:</label>
+                    <input type="text" id="name" name="name"class="form-control" value="{{ $product->name }}" required>
 
-                <label for="price" class="form-label">Harga:</label>
-                <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}"  required>
+                    <label for="price" class="form-label">Harga:</label>
+                    <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}"  required>
+                    
+                    <label for="description" class="form-label">Deskripsi:</label>
+                    <textarea id="description" name="description" class="form-control">{{ old('description', $product->description) }}</textarea>
 
-                <label for="image_url" class="form-label">Link Gambar Produk:</label>
-                <input type="url" id="image_url" name="image_url" class="form-control" value="{{ $product->image }}">
+
+                    <label for="image_url" class="form-label">Link Gambar Produk:</label>
+                    <input type="url" id="image_url" name="image_url" class="form-control" value="{{ $product->image }}">
+                    
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Simpan Perubahan</button>
+                    <a href="{{ route('admin.detail', $product->id) }}" class="btn btn-secondary mt-3">Batal</a>
+                    
+                </form>
                 
-                <button type="submit" class="btn btn-primary w-100 mt-3">Simpan Perubahan</button>
-                <a href="{{ route('admin.detail', $product->id) }}" class="btn btn-secondary mt-3">Batal</a>
-                
-            </form>
-            
+            </div>
         </div>
-    </div>
-
+    </main>
 
     <footer>
         <div class="footer-container">

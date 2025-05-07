@@ -34,7 +34,8 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'nullable|string',
-            'image_url' => 'nullable|url', // Sesuai dengan input di form
+            'image_url' => 'nullable|url',
+            'stok' => 'required',
         ]);
     
         // Gunakan gambar default jika tidak ada URL
@@ -45,7 +46,8 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
-            'image' => $imagePath, // Menggunakan image_url dari form jika tersedia
+            'image' => $imagePath,
+            'stok'=>$request->stok,
         ]);
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
@@ -81,7 +83,7 @@ class ProductController extends Controller
         $product->price = $request->price;
 
         if ($request->filled('image_url')) {
-            $product->image = $request->image_url; // Memastikan image diperbarui
+            $product->image = $request->image_url; 
         }
 
         $product->save();
