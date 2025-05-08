@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-
     public function index()
     {
         $products = Product::all();
@@ -38,10 +37,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'description' => 'nullable|string',
             'image_url' => 'nullable|url',
-<<<<<<< HEAD
             'stok' => 'required',
-=======
->>>>>>> ea59873 (history)
         ]);
         
         $imagePath = $request->image_url ?: asset('images/default-product.jpg');
@@ -51,10 +47,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'image' => $imagePath,
-<<<<<<< HEAD
             'stok'=>$request->stok,
-=======
->>>>>>> ea59873 (history)
         ]);
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
@@ -151,15 +144,11 @@ class ProductController extends Controller
         return redirect()->route('admin.history')->with('success', 'Pembelian berhasil!');
     }
 
-<<<<<<< HEAD
     public function history()
     {
         $orders = Product::with('product')->get();
         return view('history', compact('orders'));
     }
-
-=======
->>>>>>> ea59873 (history)
     public function pesanan($id)
     {
         $product = Product::findOrFail($id);
@@ -177,9 +166,4 @@ class ProductController extends Controller
         // Belum menyimpan ke database, hanya redirect
         return back()->with('success', 'Pesanan berhasil dikirim!');
     }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> ea59873 (history)
 }
