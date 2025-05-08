@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
 
@@ -16,6 +16,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
+            <a href="{{ route('admin.history') }}"></a>
             <div class="icon cart-icon">&#128722;</div>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
@@ -44,6 +45,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <main>
         <div class="container">
             <div class="banner">
@@ -60,6 +62,22 @@
                                 <h5 class="card-title">{{ $product->name }}</h5>
                                 <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
                             </div>
+=======
+    <div class="container">
+        <div class="banner">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpN5Ss-JfmAFsyFKxWX4JaMpjLx5fD8ZZJjA&s" alt="Promo Spesial Bulan Ini">
+        </div>
+
+        <h2>Best Products</h2>
+        <div class="row">
+            @foreach($products->take(3) as $product)
+                <div class="col-md-4 mb-4">
+                    <div class="card" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
+                        <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $product->name }}</h5>
+                            <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
+>>>>>>> ea59873 (history)
                         </div>
                     </div>
                 @endforeach

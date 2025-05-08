@@ -45,6 +45,46 @@
             <a href="{{ route('admin.create') }}">Tambah Product</a>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+    <div class="container-kontak">
+        <h2>Tambah Produk</h2>
+        
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data" class="form">
+            @csrf
+
+                <label for="name" class="form-label">Nama Produk</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
+
+                <label for="price" class="form-label">Harga</label>
+                <input type="number" class="form-control" id="price" name="price" value="{{ old('price') }}" required>
+
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea class="form-control" id="description" name="description" rows="4">{{ old('description') }}</textarea>
+
+                <label for="image_url" class="form-label">Link Gambar Produk</label>
+                <input type="url" class="form-control" id="image_url" name="image_url" value="{{ old('image_url') }}" placeholder="Masukkan URL gambar" required>
+
+            <button type="submit" class="btn-primary">Tambah Produk</button>
+            <a href="{{ route('admin.allproduk') }}" class="btn btn-secondary mt-3">Batal</a>
+        </form>
+    </div>
+>>>>>>> ea59873 (history)
     
     <main>
         <div class="container-kontak">

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
     public function index()
     {
         $products = Product::all();
@@ -18,6 +21,7 @@ class ProductController extends Controller
         if (!is_numeric($id)) {
             abort(404);
         }
+
         $product = Product::findOrFail($id);
         return view('admin.detail', compact('product'));
     }
@@ -29,41 +33,35 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-       
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'nullable|string',
             'image_url' => 'nullable|url',
+<<<<<<< HEAD
             'stok' => 'required',
+=======
+>>>>>>> ea59873 (history)
         ]);
-    
-        // Gunakan gambar default jika tidak ada URL
-        $imagePath = $request->image_url ?? 'default-product.jpg';
-    
-        // Simpan produk ke database
+        
+        $imagePath = $request->image_url ?: asset('images/default-product.jpg');
+
         Product::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
             'image' => $imagePath,
+<<<<<<< HEAD
             'stok'=>$request->stok,
+=======
+>>>>>>> ea59873 (history)
         ]);
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
     }
 
-    public function destroy($id)
-    {
-        $product = Product::findOrFail($id);
-        $product->delete();
-
-        return redirect()->route('admin.index')->with('success', 'Produk berhasil dihapus!');
-    }
-
     public function edit($id)
     {
-        
         $product = Product::findOrFail($id);
         return view('admin.edit', compact('product'));
     }
@@ -83,12 +81,20 @@ class ProductController extends Controller
         $product->price = $request->price;
 
         if ($request->filled('image_url')) {
-            $product->image = $request->image_url; 
+            $product->image = $request->image_url;
         }
 
         $product->save();
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil diperbarui!');
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('admin.index')->with('success', 'Produk berhasil dihapus!');
     }
 
     public function allProduk()
@@ -102,16 +108,16 @@ class ProductController extends Controller
         return view('admin.tentang');
     }
 
-    public function Kontak() {
+    public function kontak()
+    {
         return view('admin.kontak');
     }
-    
-    public function sendContact(Request $request) {
-        // Proses pengiriman email atau penyimpanan data kontak
+
+    public function sendContact(Request $request)
+    {
+        // Di sini bisa tambahkan validasi dan proses simpan/email
         return back()->with('success', 'Pesan Anda telah dikirim!');
     }
-
-    /* cekout */
 
     public function checkout($id)
     {
@@ -121,46 +127,59 @@ class ProductController extends Controller
 
     public function processCheckout(Request $request)
     {
+
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Anda harus login untuk checkout.');
+        }
+
         $request->validate([
             'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
             'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        // Simpan gambar bukti pembayaran
+        $product = Product::findOrFail($request->product_id);
         $path = $request->file('image')->store('payment_proofs', 'public');
 
-        // Simpan order ke database
-        Product::create([
-            'product_id' => $request->product_id,
-            'image' => $path,
+        Order::create([
+            'product_id' => $product->id,
+            'user_id' => Auth::id(),
+            'payment_proof' => $path,
+            'quantity' => $request->quantity,
         ]);
 
-        return redirect()->route('history')->with('success', 'Pembelian berhasil!');
+        return redirect()->route('admin.history')->with('success', 'Pembelian berhasil!');
     }
 
+<<<<<<< HEAD
     public function history()
     {
         $orders = Product::with('product')->get();
         return view('history', compact('orders'));
     }
 
+=======
+>>>>>>> ea59873 (history)
     public function pesanan($id)
     {
         $product = Product::findOrFail($id);
-        return view('admin.pesanan', compact('product')); // Pastikan view ini ada di resources/views/
+        return view('admin.pesanan', compact('product'));
     }
 
     public function storePesanan(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'nama' => 'required|string',
             'produk' => 'required|string',
             'jumlah' => 'required|integer|min:1',
         ]);
 
-        // Contoh: hanya menampilkan data, nanti bisa kamu simpan ke DB
-        return redirect()->route('pesanan')->with('success', 'Pesanan berhasil dikirim!');
+        // Belum menyimpan ke database, hanya redirect
+        return back()->with('success', 'Pesanan berhasil dikirim!');
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ea59873 (history)
 }
