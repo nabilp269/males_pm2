@@ -9,5 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class HistoryController extends Controller
 {
+<<<<<<< HEAD
     //
+=======
+    public function index($id)
+    {
+    }
+>>>>>>> b6a111c (API)
 }

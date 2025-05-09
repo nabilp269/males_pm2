@@ -143,7 +143,10 @@ class ProductController extends Controller
 
         return redirect()->route('admin.history')->with('success', 'Pembelian berhasil!');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6a111c (API)
     public function history()
     {
         $orders = Product::with('product')->get();
