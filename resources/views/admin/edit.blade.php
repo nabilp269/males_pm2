@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Produk</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     <!-- Header -->
     <div class="header">
         <div class="logo">KB</div>
         <div class="category-dropdown">
-            Kategori
-            <span>&#9662;</span>
+            Kategori <span>&#9662;</span>
         </div>
         <div class="icons">
             <div class="icon cart-icon">&#128722;</div>
@@ -32,6 +31,7 @@
             </div>
         </div>
     </div>
+
     <!-- Navigation -->
     <div class="navigation">
         <div class="nav">
@@ -44,8 +44,8 @@
         </div>
     </div>
 
+    <!-- Main Content -->
     <main>
-
         <div class="container-kontak">
             <h2>Edit Produk</h2>
             <div class="form-container">
@@ -54,23 +54,24 @@
                     @method('PUT')
 
                     <label for="name" class="form-label">Nama Produk:</label>
-                    <input type="text" id="name" name="name"class="form-control" value="{{ $product->name }}" required>
+                    <input type="text" id="name" name="name" class="form-control" value="{{ $product->name }}" required>
 
                     <label for="price" class="form-label">Harga:</label>
-                    <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}"  required>
-                    
+                    <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}" required>
+
+                    <label for="stok" class="form-label">Stock:</label>
+                    <input type="number" id="stok" name="stok" class="form-control" value="{{ $product->stok }}" required>
+
                     <label for="description" class="form-label">Deskripsi:</label>
                     <textarea id="description" name="description" class="form-control">{{ old('description', $product->description) }}</textarea>
 
+                    <!-- Input URL gambar -->
+                    <label for="image_url" class="form-label">Link Gambar Produk</label>
+                    <input type="url" class="form-control" id="image_url" name="image_url" value="{{ old('image_url', $product->image) }}" placeholder="Masukkan URL gambar" required>
 
-                    <label for="image_url" class="form-label">Link Gambar Produk:</label>
-                    <input type="url" id="image_url" name="image_url" class="form-control" value="{{ $product->image }}">
-                    
                     <button type="submit" class="btn btn-primary w-100 mt-3">Simpan Perubahan</button>
                     <a href="{{ route('admin.detail', $product->id) }}" class="btn btn-secondary mt-3">Batal</a>
-                    
                 </form>
-                
             </div>
         </div>
     </main>
@@ -85,6 +86,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

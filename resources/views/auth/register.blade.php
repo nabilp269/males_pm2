@@ -23,6 +23,7 @@
             
             <form method="POST" action="{{ route('register') }}">
                 @csrf
+
                 <div class="input-group">
                     <label class="input-label" for="name">Nama</label>
                     <input type="text" class="input-field" name="name" id="name" value="{{ old('name') }}" placeholder="Enter your Full Name here">
@@ -50,7 +51,8 @@
                 </div>
                 <button type="submit" class="create-account-btn">Create Account</button>
             </form>
-            <p class="already-account">Have an account? <a href="{{ route('login') }}" class="register-link">Login</a></p>
+            
+
         </div>
     </div>
 </body>

@@ -9,6 +9,7 @@ class product extends Model
 {
     use HasFactory;
     protected $table = 'products';
+
     protected $fillable = ['name','image','description','price','stok'];
 
     // untuk mengjooin tabel
@@ -16,4 +17,9 @@ class product extends Model
     //     return $this->belongsto(User::class,'foreign_key','other_key')
     // } user terserah dan key asing sesuai dengan nama id join
     
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
 }
