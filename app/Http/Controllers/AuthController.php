@@ -52,11 +52,9 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-<<<<<<< HEAD
-=======
 
 
->>>>>>> ea59873 (history)
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -68,15 +66,15 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-<<<<<<< HEAD
+
         
         return redirect()->intended(route('login'))
         ->with('success', 'Berhasil login!');
-=======
+
 
 
         return redirect()->route('login')->with('success', 'Pendaftaran berhasil, silakan login!');
->>>>>>> ea59873 (history)
+
     }
 
     public function logout(Request $request)

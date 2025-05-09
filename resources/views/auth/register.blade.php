@@ -23,7 +23,7 @@
             
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-<<<<<<< HEAD
+
                 <div class="input-group">
                     <label class="input-label" for="name">Nama</label>
                     <input type="text" class="input-field" name="name" id="name" value="{{ old('name') }}" placeholder="Enter your Full Name here">
@@ -51,28 +51,8 @@
                 </div>
                 <button type="submit" class="create-account-btn">Create Account</button>
             </form>
-            <p class="already-account">Have an account? <a href="{{ route('login') }}" class="register-link">Login</a></p>
-=======
-            <div class="input-group">
-                <label class="input-label">Nama</label>
-                <input type="text" class="input-field" name="name" placeholder="Enter your Full Name here">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Email</label>
-                <input type="email" class="input-field" name="email" placeholder="Enter your Full Email here">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Password</label>
-                <input type="password" class="input-field" name="password" placeholder="Enter your Password here">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Konfirmasi Password</label>
-                <input type="password" class="input-field" name="password_confirmation" placeholder="Confirm your Password" required>
-            </div>
-            <button class="create-account-btn" type="submit" >Create Account</button>
-        </form>
-            <p class="already-account">Have a account? <a href="{{ route('login') }}" class="register-link">Login</a></p>
->>>>>>> ea59873 (history)
+            
+
         </div>
     </div>
 </body>

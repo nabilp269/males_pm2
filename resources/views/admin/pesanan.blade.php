@@ -130,7 +130,7 @@
 </head>
 <body>
 <div class="container">
-<<<<<<< HEAD
+
     
     <h2>← Checkout</h2>
     <div class="product">
@@ -146,7 +146,7 @@
             <button onclick="updateQty(-1)" >➖</button>
             <div id="jumlah">1</div>
             <button onclick="updateQty(1)">➕</button>
-=======
+
     <!-- Tombol Kembali -->
     <button class="back-button" onclick="history.back()">← Kembali</button>
 
@@ -171,7 +171,7 @@
         <div class="section">
             <label>Pesan Penjual</label>
             <input type="text" placeholder="Pesan untuk penjual...">
->>>>>>> ea59873 (history)
+
         </div>
 
         <div class="section">
@@ -206,7 +206,7 @@
 </div>
 
 <script>
-<<<<<<< HEAD
+
     let jumlah = 1;
     const hargaSatuan = parseInt(document.getElementById('hargaSatuan').dataset.harga);
     const stok = parseInt(document.getElementById('hargaSatuan').dataset.stok)
@@ -219,14 +219,14 @@
     }
         jumlah += change;
         if (jumlah < 1) jumlah = 1;
-=======
+
 let jumlah = 1;
 const hargaSatuan = parseInt(document.getElementById('hargaSatuan').dataset.harga);
 
 function updateQty(change) {
     jumlah += change;
     if (jumlah < 1) jumlah = 1;
->>>>>>> ea59873 (history)
+
 
     document.getElementById('jumlah').innerText = jumlah;
     document.getElementById('jumlahTeks').innerText = jumlah;
