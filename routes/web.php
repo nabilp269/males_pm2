@@ -14,10 +14,8 @@ use App\Http\Controllers\UserController ;
     Route::post('/register', [AuthController::class, 'register']);
 // });
 
-    // Route::get('/', [ProductController::class, 'index'])->name('home');
-
 // Route untuk user yang sudah login
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     // Admin routes
     Route::get('/admin', [ProductController::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [ProductController::class, 'create'])->name('admin.create');
@@ -39,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/admin/{id}', [ProductController::class, 'destroy'])->name('admin.destroy');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'user'])->group(function () {
      // Halaman produk, tentang kami, dan kontak
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::get('/produk', [UserController::class, 'allProduk'])->name('user.allproduk');
