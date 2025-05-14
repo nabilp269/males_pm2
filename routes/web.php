@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\UserController ;
 
     
@@ -55,4 +56,5 @@ Route::middleware(['auth', 'user'])->group(function () {
 
    // Logout
    Route::middleware('auth')->post('/logout', [AuthController::class, 'logout'])->name('logout');
-
+   
+   
