@@ -39,11 +39,10 @@
     <div class="navigation">
         <div class="nav">
             <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('admin.index') }}">Home</a>
-            <a href="{{ route('admin.allproduk') }}">All Produk</a>
-            <a href="{{ route('admin.tentang') }}">Tentang kami</a>
-            <a href="{{ route('admin.kontak') }}">Kontak</a>
-            <a href="{{ route('admin.create') }}">Tambah Product</a>
+            <a href="{{ route('user.index') }}">Home</a>
+            <a href="{{ route('user.allproduk') }}">All Produk</a>
+            <a href="{{ route('user.tentang') }}">Tentang kami</a>
+            <a href="{{ route('user.kontak') }}">Kontak</a>
         </div>
     </div>
 

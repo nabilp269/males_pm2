@@ -36,11 +36,10 @@
     <div class="navigation">
         <div class="nav">
             <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('admin.index') }}">Home</a>
-            <a href="{{ route('admin.allproduk') }}">All Produk</a>
-            <a href="{{ route('admin.tentang') }}">Tentang kami</a>
-            <a href="{{ route('admin.kontak') }}">Kontak</a>
-            <a href="{{ route('admin.create') }}">Tambah Product</a>
+            <a href="{{ route('user.index') }}">Home</a>
+            <a href="{{ route('user.allproduk') }}">All Produk</a>
+            <a href="{{ route('user.tentang') }}">Tentang kami</a>
+            <a href="{{ route('user.kontak') }}">Kontak</a>
         </div>
     </div>
     <!-- Product Detail -->
@@ -62,22 +61,12 @@
                 </p>
             
                 <div class="buttons">
-                    <a href="{{ route('admin.allproduk') }}" class="back">
+                    <a href="{{ route('user.allproduk') }}" class="back">
                         <span class="button-icon">&#8592;</span> Kembali
                     </a>
-                    <a href="{{ route('admin.edit', $product->id) }}" class="edit">
-                        <span class="button-icon"></span> Edit
-                    </a>
-                    <form action="{{ route('admin.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');" style="display: inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="delete">
-                            <span class="button-icon"></span> Hapus
-                        </button>
-                    </form>
                 </div>
                 <button class="buy-button">
-                    <a href="{{ route('pesanan', $product->id) }}">Pesan Sekarang</a>
+                    <a href="{{ route('user.checkout', $product->id) }}">Pesan Sekarang</a>
                 </button>
             </div>
         </div>

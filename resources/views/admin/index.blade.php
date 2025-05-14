@@ -47,7 +47,7 @@
     <main>
         <div class="container">
             <div class="banner">
-                <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Promo Spesial Bulan Ini">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAV4X_MHueGVd6xfLXw6u59rXH9_pnf93E1Q&s" alt="Promo Spesial Bulan Ini">
             </div>
 
             <h2>Best Products</h2>

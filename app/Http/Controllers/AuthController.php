@@ -13,7 +13,7 @@ class AuthController extends Controller
 {
     public function showLogin()
     {
-        return view('auth.login');
+        return view ('auth.login');
     }
 
     public function showRegister()
@@ -41,8 +41,13 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
             
-            return redirect()->route('home')
-                             ->with('success', 'Berhasil login!');
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.index')
+                                 ->with('success', 'Berhasil login sebagai admin!');
+            } else {
+                return redirect()->route('user.index')
+                                 ->with('success', 'Berhasil login!');
+            }
         }
         
         return back()->withErrors([
@@ -57,20 +62,28 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+
+
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
+            'alamat' => 'required|string|max:255',
+            'no_telepon' => 'required|',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'alamat' => $request->alamat,
+            'no_telepon' => $request->no_telepon,
+
         ]);
-        
-        return redirect()->intended(route('login'))
-        ->with('success', 'Berhasil login!');
+
+        return redirect()->route('login')->with('success', 'Pendaftaran berhasil, silakan login!');
+
     }
 
     public function logout(Request $request): RedirectResponse

@@ -36,25 +36,24 @@
     <div class="navigation">
         <div class="nav">
             <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('admin.index') }}">Home</a>
-            <a href="{{ route('admin.allproduk') }}">All Produk</a>
-            <a href="{{ route('admin.tentang') }}">Tentang kami</a>
-            <a href="{{ route('admin.kontak') }}">Kontak</a>
-            <a href="{{ route('admin.create') }}">Tambah Product</a>
+            <a href="{{ route('user.index') }}">Home</a>
+            <a href="{{ route('user.allproduk') }}">All Produk</a>
+            <a href="{{ route('user.tentang') }}">Tentang kami</a>
+            <a href="{{ route('user.kontak') }}">Kontak</a>
         </div>
     </div>
 
     <main>
         <div class="container">
             <div class="banner">
-                <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Promo Spesial Bulan Ini">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAV4X_MHueGVd6xfLXw6u59rXH9_pnf93E1Q&s" alt="Promo Spesial Bulan Ini">
             </div>
 
             <h2>Best Products</h2>
             <div class="row">
                 @foreach($products as $product)
                     <div class="col-md-4 mb-4">
-                        <div class="card" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
+                        <div class="card" onclick="window.location.href='{{ route('user.detail', $product->id) }}'">
                             <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->name }}</h5>
