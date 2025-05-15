@@ -67,12 +67,14 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'image_url' => 'nullable|url',
+            'stok' => 'required',
         ]);
 
         $product = Product::findOrFail($id);
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->stok = $request->stok;
 
         if ($request->filled('image_url')) {
             $product->image = $request->image_url;
@@ -119,51 +121,68 @@ class ProductController extends Controller
         return view('admin.checkout', compact('product'));
     }
 
-    public function processCheckout(Request $request)
+     public function processCheckout(Request $request, $id)
 {
     if (!Auth::check()) {
         return redirect()->route('login')->with('error', 'Anda harus login untuk checkout.');
     }
 
-    $request->validate([
-        'product_id' => 'required|exists:products,id',
-        'quantity' => 'required|integer|min:1',
-        'alamat_pengiriman' => 'required|string|max:255',
-        // 'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-    ]);
+        // Validate the request
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
+            'metode_pembayaran' => 'required|string|in:bni,bca,bri,dana,ovo,shopeepay',
+        ]);
 
-    $product = Product::findOrFail($request->product_id);
+        // Get the product
+        $product = Product::findOrFail($id);
+        
+        // Get quantity from JavaScript (default to 1 if not set)
+        $quantity = intval($request->input('quantity', 1));
+        
+        // Ensure quantity is valid
+        if ($quantity < 1 || $quantity > $product->stok) {
+            return back()->with('error', 'Jumlah barang tidak valid.');
+        }
 
-    // Simpan gambar bukti pembayaran
-    // $path = $request->file('image')->store('payment_proofs', 'public');
+        // Calculate total price (product price * quantity)
+        $subtotal = $product->price * $quantity;
+        
+        // Add tax if payment method is selected
+        $tax = 3000; // Tax amount is fixed at Rp 3.000
+        $total = $subtotal + $tax;
 
-    // Hitung total harga
-    $total = $product->price * $request->quantity;
+        // Create order
+        $order = Order::create([
+            'user_id' => Auth::id(),
+            'total_price' => $total,
+            'status' => 'pending',
+            'alamat_pengiriman' => Auth::user()->alamat ?? 'Alamat belum diisi', // Get from user profile or add to checkout form
+        ]);
 
-    // Buat order
-    $order = Order::create([
-        'user_id' => Auth::id(),
-        'total_price' => $total,
-        'status' => 'pending',
-        'alamat_pengiriman' => $request->alamat_pengiriman,
-        // bisa tambah kolom payment_proof jika kamu ingin simpan di orders
-    ]);
+        // Create order item
+        OrderItem::create([
+            'order_id' => $order->id,
+            'product_id' => $product->id,
+            'quantity' => $quantity,
+            'price' => $product->price,
+        ]);
 
-    // Tambah item ke order_items
-    OrderItem::create([
-        'order_id' => $order->id,
-        'product_id' => $product->id,
-        'quantity' => $request->quantity,
-        'price' => $product->price,
-    ]);
+        // Update product stock
+        $product->stok -= $quantity;
+        $product->save();
 
-    return redirect()->route('admin.history')->with('success', 'Pembelian berhasil!');
-}
+        return redirect()->route('admin.history')->with('success', 'Pembelian berhasil! Silakan lakukan pembayaran.');
+    }
 
     public function history()
     {
-        $orders = Product::with('product')->get();
-        return view('history', compact('orders'));
+        // Get orders for the current user with related order items and products
+        $orders = Order::with(['orderItems.product'])
+                      ->where('user_id', Auth::id())
+                      ->orderBy('created_at', 'desc')
+                      ->get();
+                      
+        return view('admin.history', compact('orders'));
     }
     
 }

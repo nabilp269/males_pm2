@@ -16,7 +16,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
-            <div class="icon cart-icon">&#128722;</div>
+            <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">

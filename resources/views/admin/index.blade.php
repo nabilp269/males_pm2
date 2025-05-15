@@ -45,10 +45,16 @@
     </div>
 
     <main>
-        <div class="container">
-            <div class="banner">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAV4X_MHueGVd6xfLXw6u59rXH9_pnf93E1Q&s" alt="Promo Spesial Bulan Ini">
-            </div>
+            <div class="container">
+        <div class="banner">
+              <img src="https://img.freepik.com/premium-photo/various-kue-kering-cookies-lebaran-food-background_511235-11190.jpg" alt="Promo Spesial Bulan Ini">
+        </div>
+            <div class="banner-text">
+            <h1>Kue Kering Premium untuk Setiap Momen</h1>
+            <p>Kami hadir untuk memanjakan lidah Anda dengan kue kering berkualitas,  
+            dibuat dari bahan pilihan dan diproses dengan standar higienis serta teknologi modern.</p>
+         </div>
+         </div>
 
             <h2>Best Products</h2>
             <div class="row">

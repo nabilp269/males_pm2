@@ -6,6 +6,9 @@
     <title>All Products</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <style>
+        
+    </style>
 </head>
 <body>
 
@@ -16,7 +19,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
-            <div class="icon cart-icon">&#128722;</div>
+            <a href="{{ route('admin.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">
@@ -44,10 +47,18 @@
     </div>
 
     <main>
-        <div class="container">
-            <div class="banner">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAV4X_MHueGVd6xfLXw6u59rXH9_pnf93E1Q&s" alt="Promo Spesial Bulan Ini">
-            </div>
+    <div class="container">
+        <div class="banner">
+              <img src="https://img.freepik.com/premium-photo/various-kue-kering-cookies-lebaran-food-background_511235-11190.jpg" alt="Promo Spesial Bulan Ini">
+        </div>
+         <div class="banner-text">
+            <h1>Kue Kering Premium untuk Setiap Momen</h1>
+            <p>Kami hadir untuk memanjakan lidah Anda dengan kue kering berkualitas,  
+            dibuat dari bahan pilihan dan diproses dengan standar higienis serta teknologi modern.</p>
+         </div>
+   </div>
+
+
 
             <h2>Best Products</h2>
             <div class="row">

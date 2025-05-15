@@ -32,6 +32,7 @@
             text-decoration: none;
             cursor: pointer;
         }
+        
 
         .checkout-title {
             font-size: 18px;
@@ -187,14 +188,19 @@
             <div class="checkout-title">Checkout</div>
         </div>
 
-        <form action="{{ route('processCheckout', $product->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('user.processCheckout', $product->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <!-- Hidden input for quantity - THIS IS CRITICAL! -->
+            <input type="hidden" id="quantityInput" name="quantity" value="1">
+            
             <!-- Item Card -->
             <div class="item-card">
                 <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="item-image">
                 <div class="item-details">
                     <div class="item-name">{{ $product->name }}</div>
-                    <div class="item-price">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
+                    <div id="hargaSatuan" data-stok="{{ $product->stok }}" data-harga="{{ $product->price }}" class="item-price">
+                        Rp {{ number_format($product->price, 0, ',', '.') }}
+                    </div>
                     <div class="item-controls">
                         <div class="quantity-btn" onclick="decreaseQuantity()">-</div>
                         <div class="quantity" id="quantity">1</div>
@@ -240,48 +246,55 @@
     </div>
 
     <script>
-        let quantity = 1;
-        const productPrice = {{ $product->price }};
-        const tax = 3000;
-        let isTaxVisible = false;
+    let quantity = 1;
+    const hargaSatuan = parseInt(document.getElementById('hargaSatuan').dataset.harga);
+    const stok = parseInt(document.getElementById('hargaSatuan').dataset.stok);
 
-        function updateTotalPrice() {
-            const totalProduct = quantity * productPrice;
-            document.getElementById('quantity').textContent = quantity;
-            document.getElementById('itemCount').textContent = quantity;
-            document.getElementById('totalPrice').textContent = "Rp " + totalProduct.toLocaleString('id-ID');
+    const tax = 3000;
+    let isTaxVisible = false;
 
-            if (isTaxVisible) {
-                const totalWithTax = totalProduct + tax;
-                document.getElementById('taxAmount').textContent = "Rp " + tax.toLocaleString('id-ID');
-                document.getElementById('totalFooter').textContent = "Rp " + totalWithTax.toLocaleString('id-ID');
-            } else {
-                document.getElementById('totalFooter').textContent = "Rp " + totalProduct.toLocaleString('id-ID');
-            }
+    function updateTotalPrice() {
+        const totalProduct = quantity * hargaSatuan;
+        document.getElementById('quantity').textContent = quantity;
+        document.getElementById('itemCount').textContent = quantity;
+        document.getElementById('totalPrice').textContent = "Rp " + totalProduct.toLocaleString('id-ID');
+        
+        // Update hidden input value - THIS IS CRITICAL!
+        document.getElementById('quantityInput').value = quantity;
 
-            document.getElementById('checkoutButton').textContent = `Checkout (${quantity})`;
+        if (isTaxVisible) {
+            const totalWithTax = totalProduct + tax;
+            document.getElementById('taxAmount').textContent = "Rp " + tax.toLocaleString('id-ID');
+            document.getElementById('totalFooter').textContent = "Rp " + totalWithTax.toLocaleString('id-ID');
+        } else {
+            document.getElementById('totalFooter').textContent = "Rp " + totalProduct.toLocaleString('id-ID');
         }
 
-        function decreaseQuantity() {
-            if (quantity > 1) {
-                quantity--;
-                updateTotalPrice();
-            }
-        }
+        document.getElementById('checkoutButton').textContent = `Checkout (${quantity})`;
+    }
 
-        function increaseQuantity() {
+    function decreaseQuantity() {
+        if (quantity > 1) {
+            quantity--;
+            updateTotalPrice();
+        }
+    }
+
+    function increaseQuantity() {
+        if (quantity < stok) {
             quantity++;
             updateTotalPrice();
         }
+    }
 
-        function updateTotalWithTax() {
-            isTaxVisible = true;
-            document.getElementById('taxRow').style.display = 'flex';
-            updateTotalPrice();
-        }
-
-        // Initialize
+    function updateTotalWithTax() {
+        isTaxVisible = true;
+        document.getElementById('taxRow').style.display = 'flex';
         updateTotalPrice();
+    }
+
+    // Initialize
+    updateTotalPrice();
     </script>
 </body>
 </html>

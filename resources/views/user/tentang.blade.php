@@ -17,7 +17,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
-            <div class="icon cart-icon">&#128722;</div>
+            <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <!-- Instagram Icon -->

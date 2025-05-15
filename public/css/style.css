@@ -244,9 +244,12 @@
         }
 
         .banner {
-            width: 100%;
-            margin: 20px 0;
+        width: 100%;
+        margin: 20px 0;
+        position: relative; 
+
         }
+
 
         .banner img {
             width: 100%;
@@ -256,6 +259,37 @@
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        .banner {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 75%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: left;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .banner-text h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .banner-text p {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+
 
         footer {
             background-color: #333;
@@ -274,6 +308,8 @@
         .social-media a:hover {
             color: #27ae60;
         }
+
+        /*Tentang kami*/
 
         .container-tentang {
             max-width: 960px;
@@ -569,7 +605,7 @@
             .price {
                 font-size: 24px;
             }
-            
+        
             .buttons {
                 flex-direction: column;
             }

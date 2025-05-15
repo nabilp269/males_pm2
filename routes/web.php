@@ -28,7 +28,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Checkout dan riwayat
     Route::get('/admin/checkout/{id}', [ProductController::class, 'checkout'])->name('admin.checkout');
-    Route::post('/checkout/{id}', [ProductController::class, 'processCheckout'])->name('processCheckout');
+    Route::post('admin/prosescheckout/{id}', [ProductController::class, 'processCheckout'])->name('admin.processCheckout');
     Route::get('/history', [ProductController::class, 'history'])->name('admin.history');
 
     // Parameter routes (diletakkan paling bawah agar tidak konflik)
@@ -49,7 +49,7 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/user/{id}', [UserController::class, 'show'])->name('user.detail');
     // Checkout dan riwayat pesanan
     Route::get('/checkout/{id}', [UserController::class, 'checkout'])->name('user.checkout');
-    Route::post('/checkout/{id}', [UserController::class, 'processCheckout'])->name('processCheckout');
+    Route::post('/prosescheckout/{id}', [UserController::class, 'processCheckout'])->name('user.processCheckout');
     Route::get('/riwayat', [UserController::class, 'history'])->name('user.history');
 
    });
