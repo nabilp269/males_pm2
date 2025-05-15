@@ -56,20 +56,25 @@
          </div>
          </div>
 
-            <h2>Best Products</h2>
-            <div class="row">
-                @foreach($products as $product)
-                    <div class="col-md-4 mb-4">
-                        <div class="card" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
-                            <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $product->name }}</h5>
-                                <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+            <h2 class="text-center my-4">Best Products</h2>
+<div class="row justify-content-center">
+    @foreach($products as $product)
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card" style="width: 100%; max-width: 350px; cursor: pointer;" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
+                <img 
+                    src="{{ asset($product->image) }}" 
+                    class="card-img-top" 
+                    alt="{{ $product->name }}" 
+                    style="object-fit: cover; height: 250px; width: 100%;"
+                >
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ $product->name }}</h5>
+                    <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
+                </div>
             </div>
+        </div>
+    @endforeach
+</div>
         </div>
     </main>
 
