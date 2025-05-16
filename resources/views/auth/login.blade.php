@@ -11,7 +11,7 @@
     <div class="login-container">
         <div class="image-container">
             <div class="blob-shape"></div>
-            <img src="https://i.postimg.cc/VvFmSXrH/hot-air-balloon.jpg" alt="Hot Air Balloon" class="balloon-image">
+            <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Hot Air Balloon" class="balloon-image">
         </div>
         <div class="form-container">
             <h1 class="login-heading">Login</h1>

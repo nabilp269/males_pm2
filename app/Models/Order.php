@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +14,7 @@ class Order extends Model
         'total_price',
         'status',
         'alamat_pengiriman',
+        'seller_message',  // Tambahkan ini supaya bisa mass assign
     ];
 
     // Relasi: Order milik satu User
@@ -26,8 +28,11 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
+
+    // Biasanya Order tidak langsung punya Product,
+    // tapi jika kamu memang ingin relasi produk, bisa dihapus jika tidak perlu
+    // public function product()
+    // {
+    //     return $this->belongsTo(Product::class);
+    // }
 }

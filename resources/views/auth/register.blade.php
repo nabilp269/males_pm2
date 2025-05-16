@@ -10,7 +10,7 @@
     <div class="login-container">
         <div class="image-container">
             <div class="blob-shape"></div>
-            <img src="https://i.postimg.cc/VvFmSXrH/hot-air-balloon.jpg" alt="Hot Air Balloon" class="balloon-image">
+            <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Hot Air Balloon" class="balloon-image">
         </div>
         <div class="form-container">
             <h1 class="login-heading">Register</h1>
@@ -65,7 +65,8 @@
                 </div>
                 <button type="submit" class="create-account-btn">Create Account</button>
             </form>
-            
+            <p class="already-account">Already have a account! <a href="{{ route('login') }}" class="login-link">Login</a></p>
+        
 
         </div>
     </div>
