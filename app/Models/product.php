@@ -21,5 +21,12 @@ class product extends Model
     {
         return $this->hasMany(Order::class);
     }
+    
+    // di app\Models\Product.php
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
 
 }

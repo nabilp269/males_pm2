@@ -11,8 +11,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('user.index', compact('products'));
+
+        $bestProducts = Product::withSum('orderItems as total_sold', 'quantity')
+            ->orderByDesc('total_sold')
+            ->take(1)
+            ->get();
+
+
+        return view('user.index', compact('bestProducts'));
     }
 
     public function show($id)

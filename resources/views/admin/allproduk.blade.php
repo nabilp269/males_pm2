@@ -16,7 +16,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
-            <a href="{{ route('admin.history') }}"><div class="icon cart-icon">&#128722;a</div></a>
+            <a href="{{ route('admin.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">
@@ -44,12 +44,12 @@
         </div>
     </div>
 
-    <main>
+    <main>  
         <div class="container mt-4">
         
             <h2 class="mb-4">All Products</h2>
             <div class="row">
-                @foreach($products as $product)
+                @foreach($bestProducts  as $product)
                     <div class="col-md-4 mb-4">
                         <div class="card" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
                             <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}">

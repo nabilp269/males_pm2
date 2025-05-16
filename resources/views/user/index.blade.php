@@ -19,7 +19,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
-            <a href="{{ route('admin.history') }}"><div class="icon cart-icon">&#128722;</div></a>
+            <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">
@@ -56,13 +56,10 @@
             <p>Kami hadir untuk memanjakan lidah Anda dengan kue kering berkualitas,  
             dibuat dari bahan pilihan dan diproses dengan standar higienis serta teknologi modern.</p>
          </div>
-   </div>
-
-
 
             <h2>Best Products</h2>
             <div class="row">
-                @foreach($products as $product)
+                @foreach($bestProducts  as $product)
                     <div class="col-md-4 mb-4">
                         <div class="card" onclick="window.location.href='{{ route('user.detail', $product->id) }}'">
                             <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
@@ -74,7 +71,7 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+    </div>
     </main>
 
     <footer>
