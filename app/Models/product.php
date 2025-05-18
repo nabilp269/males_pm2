@@ -10,7 +10,7 @@ class product extends Model
     use HasFactory;
     protected $table = 'products';
 
-    protected $fillable = ['name','image','description','price','stok'];
+    protected $fillable = ['name','image','description','price','stok','kategori'];
 
     // untuk mengjooin tabel
     // public function user(): BeLongsTo{

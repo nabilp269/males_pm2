@@ -12,7 +12,9 @@ class Order extends Model
         'user_id',
         'total_price',
         'status',
+        'pesan',
         'alamat_pengiriman',
+        'bukti_pembayaran',
     ];
 
     // Relasi: Order milik satu User

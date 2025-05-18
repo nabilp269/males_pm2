@@ -14,7 +14,7 @@ class UserController extends Controller
 
         $bestProducts = Product::withSum('orderItems as total_sold', 'quantity')
             ->orderByDesc('total_sold')
-            ->take(1)
+            ->take(6)
             ->get();
 
 
@@ -31,11 +31,25 @@ class UserController extends Controller
         return view('user.detail', compact('product'));
     }
 
-        public function allProduk()
-    {
-        $products = Product::all();
-        return view('user.allproduk', compact('products'));
+     public function allProduk(Request $request)
+{
+    $query = Product::query();
+
+    // Filter berdasarkan kategori
+    if ($request->has('kategori') && $request->kategori != 'Semua') {
+        $query->where('kategori', $request->kategori);
     }
+
+    // Pencarian berdasarkan nama
+    if ($request->has('search')) {
+        $query->where('name', 'like', '%' . $request->search . '%');
+    }
+
+    $products = $query->get();
+
+    return view('user.allproduk', compact('products'));
+}
+
 
     public function tentang()
     {
@@ -69,6 +83,7 @@ class UserController extends Controller
         $request->validate([
             'quantity' => 'required|integer|min:1',
             'metode_pembayaran' => 'required|string|in:bni,bca,bri,dana,ovo,shopeepay',
+            'pesan' => 'required|string|max:255',
         ]);
 
         // Get the product
@@ -94,6 +109,7 @@ class UserController extends Controller
             'user_id' => Auth::id(),
             'total_price' => $total,
             'status' => 'pending',
+            'pesan'=> $request->pesan,
             'alamat_pengiriman' => Auth::user()->alamat ?? 'Alamat belum diisi', // Get from user profile or add to checkout form
         ]);
 
@@ -122,4 +138,24 @@ class UserController extends Controller
                       
         return view('user.history', compact('orders'));
     }
+
+    public function uploadBukti(Request $request, $orderId)
+{
+    $request->validate([
+        'bukti_pembayaran' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
+    $order = Order::findOrFail($orderId);
+
+    if ($request->hasFile('bukti_pembayaran')) {
+        $filename = time() . '.' . $request->bukti_pembayaran->extension();
+        $request->bukti_pembayaran->move(public_path('bukti'), $filename);
+
+        $order->bukti_pembayaran = 'bukti/' . $filename;
+        $order->save();
+    }
+
+    return redirect()->back()->with('success', 'Bukti pembayaran berhasil diupload.');
+}
+
 }

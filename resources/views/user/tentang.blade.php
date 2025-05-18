@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>
 
@@ -38,12 +39,11 @@
 
     <div class="navigation">
         <div class="nav">
-            <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('user.index') }}">Home</a>
-            <a href="{{ route('user.allproduk') }}">All Produk</a>
-            <a href="{{ route('user.tentang') }}">Tentang kami</a>
-            <a href="{{ route('user.kontak') }}">Kontak</a>
-        </div>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('user.index') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('user.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
+            <a href="{{ route('user.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="{{ route('user.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a></div>
     </div>
 
     <div class="container-tentang">

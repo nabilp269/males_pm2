@@ -51,6 +51,8 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/checkout/{id}', [UserController::class, 'checkout'])->name('user.checkout');
     Route::post('/prosescheckout/{id}', [UserController::class, 'processCheckout'])->name('user.processCheckout');
     Route::get('/riwayat', [UserController::class, 'history'])->name('user.history');
+    Route::post('/orders/{order}/upload-bukti', [UserController::class, 'uploadBukti'])->name('orders.uploadBukti');
+
 
    });
 

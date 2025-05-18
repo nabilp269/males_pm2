@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Produk</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -35,12 +36,11 @@
     <!-- Navigation -->
     <div class="navigation">
         <div class="nav">
-            <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('admin.index') }}">Home</a>
-            <a href="{{ route('admin.allproduk') }}">All Produk</a>
-            <a href="{{ route('admin.tentang') }}">Tentang kami</a>
-            <a href="{{ route('admin.kontak') }}">Kontak</a>
-            <a href="{{ route('admin.create') }}">Tambah Product</a>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('admin.index') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('admin.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
+            <a href="{{ route('admin.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="{{ route('admin.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
         </div>
     </div>
 
@@ -62,6 +62,27 @@
                     <label for="stok" class="form-label">Stock:</label>
                     <input type="number" id="stok" name="stok" class="form-control" value="{{ $product->stok }}" required>
 
+                    <label for="kategori" class="form-label">Kategori</label>
+                    <select name="kategori" class="form-control" >
+                        <option value="{{ $product->kategori }}">{{ $product->kategori }}</option>
+                                            
+                        @if($product->kategori != 'Roti')
+                            <option value="Roti">Roti</option>
+                        @endif
+                        @if($product->kategori != 'Kue')
+                            <option value="Kue">Kue</option>
+                        @endif
+                        @if($product->kategori != 'Pastry')
+                            <option value="Pastry">Pastry</option>
+                        @endif
+                        @if($product->kategori != 'Donat')
+                            <option value="Donat">Donat</option>
+                        @endif
+                        @if($product->kategori != 'Spesial')
+                            <option value="Spesial">Spesial</option>
+                        @endif
+                    </select>
+                    
                     <label for="description" class="form-label">Deskripsi:</label>
                     <textarea id="description" name="description" class="form-control">{{ old('description', $product->description) }}</textarea>
 
@@ -69,8 +90,8 @@
                     <label for="image_url" class="form-label">Link Gambar Produk</label>
                     <input type="url" class="form-control" id="image_url" name="image_url" value="{{ old('image_url', $product->image) }}" placeholder="Masukkan URL gambar" required>
 
-                    <button type="submit" class="btn btn-primary w-100 mt-3">Simpan Perubahan</button>
-                    <a href="{{ route('admin.detail', $product->id) }}" class="btn btn-secondary mt-3">Batal</a>
+                    <button type="submit" class="btn-primary ">Simpan Perubahan</button>
+                    <a href="javascript:history.back()" class="btn btn-secondary mt-3">Batal</a>
                 </form>
             </div>
         </div>

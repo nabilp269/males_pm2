@@ -585,3 +585,81 @@
         background-color: #757575;
         transform: scale(1.05);
     }
+
+    .filter-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .filter-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #664d00;
+            margin-bottom: 15px;
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background-color: #f9f5e7;
+            border: 2px solid #ffe680;
+            border-radius: 25px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            color: #664d00;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #ffd700;
+            border-color: #ffcc00;
+            transform: scale(1.05);
+        }
+        
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .search-input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: 2px solid #ffe680;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            outline: none;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
+        .search-input:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .search-btn {
+            background-color: #ffd700;
+            color: #664d00;
+            border: none;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            padding: 0 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            background-color: #ffcc00;
+        }
+        
