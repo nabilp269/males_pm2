@@ -16,7 +16,7 @@
     <div class="header">
         <div class="logo">KB</div>
         <div class="category-dropdown">
-            Hello World Kategori
+            Reinkarnasi Kategori
         <span>&#9662;</span>
         </div>
         <div class="icons">
