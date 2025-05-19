@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Relasi ke tabel products
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relasi ke tabel users
-            $table->string('payment_proof'); // Bukti pembayaran
-            $table->integer('quantity'); // Jumlah produk yang dipesan
-            $table->string('status')->default('pending'); // Status pesanan (pending, completed, etc.)
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->decimal('total_price', 10, 2);
+            $table->string('pesan')->nullable();
+            $table->string('status')->default('pending'); // pending, paid, shipped
+            $table->string('alamat_pengiriman')->nullable();
+            
             $table->timestamps();
         });
     }

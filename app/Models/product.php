@@ -10,7 +10,7 @@ class product extends Model
     use HasFactory;
     protected $table = 'products';
 
-    protected $fillable = ['name','image','description','price','stok'];
+    protected $fillable = ['name','image','description','price','stok','kategori'];
 
     // untuk mengjooin tabel
     // public function user(): BeLongsTo{
@@ -21,5 +21,12 @@ class product extends Model
     {
         return $this->hasMany(Order::class);
     }
+    
+    // di app\Models\Product.php
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
 
 }

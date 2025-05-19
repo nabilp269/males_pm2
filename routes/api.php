@@ -10,11 +10,11 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::get('product', [ProductController::class,'index'])->middleware(['auth:sanctum']);
+Route::get('product', [ProductController::class,'index']);//->middleware(['auth:sanctum']);
 Route::post('product/store', [ProductController::class,'store']);
 Route::get('product/{id}',[ProductController::class, 'show']);
 Route::delete('product/delete/{id}',[ProductController::class, 'destroy']);
 Route::put('product/edit/{id}',[ProductController::class, 'update']);
 
-Route::get('login/', [AuthController::class, 'login']);
-Route::get('logout/', [AuthController::class, 'logout']);
+// Route::get('login/', [AuthController::class, 'login']);
+// Route::get('logout/', [AuthController::class, 'logout']);

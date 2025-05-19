@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Produk {{ $product->name }}</title> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -33,12 +34,11 @@
     <!-- Navigation -->
     <div class="navigation">
         <div class="nav">
-            <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('admin.index') }}">Home</a>
-            <a href="{{ route('admin.allproduk') }}">All Produk</a>
-            <a href="{{ route('admin.tentang') }}">Tentang Kami</a>
-            <a href="{{ route('admin.kontak') }}">Kontak</a>
-            <a href="{{ route('admin.create') }}">Tambah Produk</a>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('admin.index') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('admin.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
+            <a href="{{ route('admin.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="{{ route('admin.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
         </div>
     </div>
 
@@ -64,7 +64,7 @@
                 </p>
 
                 <div class="buttons mt-3">
-                    <a href="{{ route('admin.allproduk') }}" class="btn btn-secondary me-2">
+                    <a href="javascript:history.back()" class="btn btn-secondary me-2">
                         &#8592; Kembali
                     </a>
                     <a href="{{ route('admin.edit', $product->id) }}" class="btn btn-warning me-2">

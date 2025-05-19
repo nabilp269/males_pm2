@@ -49,6 +49,20 @@
                     <label class="input-label" for="password_confirmation">Confirm Password</label>
                     <input type="password" class="input-field" name="password_confirmation" id="password_confirmation" placeholder="Confirm your Password">
                 </div>
+                <div class="input-group">
+                    <label class="input-label" for="alamat">alamat</label>
+                    <input type="text" class="input-field" name="alamat" id="alamat" placeholder="Enter your alamat here">
+                    @error('alamat')
+                        <span class="error-message">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="no_telepon">Nomer telepon</label>
+                    <input type="text" class="input-field" name="no_telepon" id="no_telepon" placeholder="Enter your Nomer telepon here">
+                    @error('no_telepon')
+                        <span class="error-message">{{ $message }}</span>
+                    @enderror
+                </div>
                 <button type="submit" class="create-account-btn">Create Account</button>
             </form>
             
