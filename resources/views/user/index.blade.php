@@ -19,7 +19,7 @@
         </div>
 
         <div class="category-dropdown">
-            Hello World Kategori
+            Reinkarnasi Kategori
         <span>&#9662;</span>
         </div>
         <div class="icons">
