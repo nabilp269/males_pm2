@@ -13,7 +13,7 @@
     <div class="header">
         <div class="logo">KB</div>
         <div class="category-dropdown">
-            Kategori
+            hello worldsKategori
             <span>&#9662;</span>
         </div>
         <div class="icons">
