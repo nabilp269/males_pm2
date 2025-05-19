@@ -11,6 +11,15 @@
 <body>
 
     <div class="header">
+
+        <div class="logo">
+            <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Promo Spesial Bulan Ini">
+        </div>
+        
+        <div class="category-dropdown">
+            Kategori
+            <span>&#9662;</span>
+        </div>
         <div class="logo">KB</div>
         <div class="icons">
             <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>

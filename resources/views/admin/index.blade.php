@@ -11,7 +11,10 @@
 <body>
 
     <div class="header">
-        <div class="logo">KB</div>
+        <div class="logo">
+            <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Promo Spesial Bulan Ini">
+        </div>
+        
         <div class="category-dropdown">
             Kategori
             <span>&#9662;</span>
@@ -45,6 +48,10 @@
     </div>
 
     <main>
+
+        <div class="banner">
+            <img src="https://img.freepik.com/premium-photo/various-kue-kering-cookies-lebaran-food-background_511235-11190.jpg" alt="Promo Spesial Bulan Ini">
+    
         <div class="container">
             <div class="banner">
               <img src="https://img.freepik.com/premium-photo/various-kue-kering-cookies-lebaran-food-background_511235-11190.jpg" alt="Promo Spesial Bulan Ini">
@@ -54,6 +61,8 @@
                 <p>Kami hadir untuk memanjakan lidah Anda dengan kue kering berkualitas,  
                 dibuat dari bahan pilihan dan diproses dengan standar higienis serta teknologi modern.</p>
             </div>
+
+        </div>
        
 
             <h2 class="text-center my-4">Best Products</h2>
