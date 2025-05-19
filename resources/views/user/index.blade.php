@@ -19,8 +19,8 @@
         </div>
 
         <div class="category-dropdown">
-            Kategori
-            <span>&#9662;</span>
+            Hello World Kategori
+        <span>&#9662;</span>
         </div>
         <div class="icons">
             <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
