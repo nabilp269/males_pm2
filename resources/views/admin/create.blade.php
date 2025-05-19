@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Produk</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
  
 </head>
@@ -40,12 +41,11 @@
 
     <div class="navigation">
         <div class="nav">
-            <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('admin.index') }}">Home</a>
-            <a href="{{ route('admin.allproduk') }}">All Produk</a>
-            <a href="{{ route('admin.tentang') }}">Tentang kami</a>
-            <a href="{{ route('admin.kontak') }}">Kontak</a>
-            <a href="{{ route('admin.create') }}">Tambah Product</a>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('admin.index') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('admin.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
+            <a href="{{ route('admin.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="{{ route('admin.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
         </div>
     </div>
 
@@ -77,7 +77,17 @@
 
                 <label for="stok" class="form-label">Stock</label>
                 <input type="number" class="form-control" id="stok" name="stok" value="{{ old('stok') }}" required>
-
+                
+                <label for="kategori" class="form-label">Kategori</label>
+                <select name="kategori" class="form-control" >
+                    <option value="" disabled selected>Pilih Kategori</option>
+                    <option value="Roti">Roti</option>
+                    <option value="Kue">Kue</option>
+                    <option value="Pastry">Pastry</option>
+                    <option value="Donat">Donat</option>
+                    <option value="Spesial">Spesial</option>
+                </select>
+                
                 <label for="description" class="form-label">Deskripsi</label>
                 <textarea class="form-control" id="description" name="description" rows="4">{{ old('description') }}</textarea>
 
@@ -85,7 +95,7 @@
                 <input type="url" class="form-control" id="image_url" name="image_url" value="{{ old('image_url') }}" placeholder="Masukkan URL gambar" required>
 
             <button type="submit" class="btn-primary">Tambah Produk</button>
-            <a href="{{ route('admin.allproduk') }}" class="btn btn-secondary mt-3">Batal</a>
+            <a href="javascript:history.back()" class="btn btn-secondary mt-3">Batal</a>
         </form>
     </div>
  

@@ -12,8 +12,12 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('admin.index', compact('products'));
+        $bestProducts = Product::withSum('orderItems as total_sold', 'quantity')
+            ->orderByDesc('total_sold')
+            ->take(6)
+            ->get();
+
+        return view('admin.index', compact('bestProducts'));
     }
 
     public function show($id)
@@ -39,6 +43,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'image_url' => 'nullable|url',
             'stok' => 'required',
+            'kategori' => 'required|string|max:255'
         ]);
         
         $imagePath = $request->image_url ?: asset('images/default-product.jpg');
@@ -49,6 +54,7 @@ class ProductController extends Controller
             'description' => $request->description,
             'image' => $imagePath,
             'stok'=>$request->stok,
+            'kategori'=>$request->kategori,
         ]);
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan!');
@@ -68,6 +74,8 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'image_url' => 'nullable|url',
             'stok' => 'required',
+            'kategori' => 'required|string|max:255',
+            
         ]);
 
         $product = Product::findOrFail($id);
@@ -75,6 +83,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->stok = $request->stok;
+        $product->kategori = $request->kategori;
 
         if ($request->filled('image_url')) {
             $product->image = $request->image_url;
@@ -93,9 +102,22 @@ class ProductController extends Controller
         return redirect()->route('admin.index')->with('success', 'Produk berhasil dihapus!');
     }
 
-    public function allProduk()
+     public function allProduk(Request $request)
     {
-        $products = Product::all();
+        $query = Product::query();
+
+        // Filter berdasarkan kategori
+        if ($request->has('kategori') && $request->kategori != 'Semua') {
+            $query->where('kategori', $request->kategori);
+        }
+
+        // Pencarian berdasarkan nama
+        if ($request->has('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        $products = $query->get();
+
         return view('admin.allproduk', compact('products'));
     }
 

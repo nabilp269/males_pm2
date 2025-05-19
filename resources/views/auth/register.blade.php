@@ -57,7 +57,7 @@
                     @enderror
                 </div>
                 <div class="input-group">
-                    <label class="input-label" for="no_telepon">no_telepon</label>
+                    <label class="input-label" for="no_telepon">Nomer telepon</label>
                     <input type="text" class="input-field" name="no_telepon" id="no_telepon" placeholder="Enter your Nomer telepon here">
                     @error('no_telepon')
                         <span class="error-message">{{ $message }}</span>

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>
 <body>
 
     <div class="header">
+
         <div class="logo">
             <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Promo Spesial Bulan Ini">
         </div>
@@ -18,6 +20,7 @@
             Kategori
             <span>&#9662;</span>
         </div>
+        <div class="logo">KB</div>
         <div class="icons">
             <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
@@ -38,17 +41,46 @@
 
     <div class="navigation">
         <div class="nav">
-            <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('user.index') }}">Home</a>
-            <a href="{{ route('user.allproduk') }}">All Produk</a>
-            <a href="{{ route('user.tentang') }}">Tentang kami</a>
-            <a href="{{ route('user.kontak') }}">Kontak</a>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('user.index') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('user.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
+            <a href="{{ route('user.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="{{ route('user.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
         </div>
     </div>
 
     <main>
         <div class="container mt-4">
-        
+            
+                    <!-- Search & Filter -->
+        <form method="GET" action="{{ route('user.allproduk') }}">
+            <div class="row mb-4">
+                <div class="search-bar">
+                    <input type="text" name="search" class="search-input" placeholder="Cari produk..." value="{{ request('search') }}">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i> Cari
+                    </button>
+                </div>
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter Produk:</h3>
+                    <div class="filter-options">
+                     @php
+                        $kategori = request('kategori');
+                    @endphp
+                    <a href="{{ route('user.allproduk', ['kategori' => null, 'search' => request('search')]) }}" class="btn {{ !$kategori ? 'filter-btn active' : 'filter-btn' }}">Semua</a>
+                    <a href="{{ route('user.allproduk', ['kategori' => 'Roti', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Roti' ? 'filter-btn active' : 'filter-btn' }}">Roti</a>
+                    <a href="{{ route('user.allproduk', ['kategori' => 'Kue', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Kue' ? 'filter-btn active' : 'filter-btn' }}">Kue</a>
+                    <a href="{{ route('user.allproduk', ['kategori' => 'Pastry', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Pastry' ? 'filter-btn active' : 'filter-btn' }}">Pastry</a>
+                    <a href="{{ route('user.allproduk', ['kategori' => 'Donat', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Donat' ? 'filter-btn active' : 'filter-btn' }}">Donat</a>
+                    <a href="{{ route('user.allproduk', ['kategori' => 'Special', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Special' ? 'filter-btn active' : 'filter-btn' }}">Special</a>
+    
+                    </div>
+                </div>
+            </div>
+        </form>
+
+            
+
             <h2 class="mb-4">All Products</h2>
             <div class="row">
                 @foreach($products as $product)

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>
 <body>
@@ -19,7 +20,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
-            <a href="{{ route('admin.history') }}"><div class="icon cart-icon">&#128722;a</div></a>
+            <a href="{{ route('admin.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">
@@ -38,21 +39,46 @@
 
     <div class="navigation">
         <div class="nav">
-            <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('admin.index') }}">Home</a>
-            <a href="{{ route('admin.allproduk') }}">All Produk</a>
-            <a href="{{ route('admin.tentang') }}">Tentang kami</a>
-            <a href="{{ route('admin.kontak') }}">Kontak</a>
-            <a href="{{ route('admin.create') }}">Tambah Product</a>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('admin.index') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('admin.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
+            <a href="{{ route('admin.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="{{ route('admin.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
         </div>
     </div>
 
-    <main>
+    <main>  
         <div class="container mt-4">
         
-            <h2 class="mb-4">All Products</h2>
+             <form method="GET" action="{{ route('admin.allproduk') }}">
+            <div class="row mb-4">
+                <div class="search-bar">
+                    <input type="text" name="search" class="search-input" placeholder="Cari produk..." value="{{ request('search') }}">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i> Cari
+                    </button>
+                </div>
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter Produk:</h3>
+                    <div class="filter-options">
+                     @php
+                        $kategori = request('kategori');
+                    @endphp
+                    <a href="{{ route('admin.allproduk', ['kategori' => null, 'search' => request('search')]) }}" class="btn {{ !$kategori ? 'filter-btn active' : 'filter-btn' }}">Semua</a>
+                    <a href="{{ route('admin.allproduk', ['kategori' => 'Roti', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Roti' ? 'filter-btn active' : 'filter-btn' }}">Roti</a>
+                    <a href="{{ route('admin.allproduk', ['kategori' => 'Kue', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Kue' ? 'filter-btn active' : 'filter-btn' }}">Kue</a>
+                    <a href="{{ route('admin.allproduk', ['kategori' => 'Pastry', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Pastry' ? 'filter-btn active' : 'filter-btn' }}">Pastry</a>
+                    <a href="{{ route('admin.allproduk', ['kategori' => 'Donat', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Donat' ? 'filter-btn active' : 'filter-btn' }}">Donat</a>
+                    <a href="{{ route('admin.allproduk', ['kategori' => 'Special', 'search' => request('search')]) }}" class="btn {{ $kategori == 'Special' ? 'filter-btn active' : 'filter-btn' }}">Special</a>
+    
+                    </div>
+                </div>
+            </div>
+        </form>
+
+            <h2 class="mb-4">Semua Produk Kami</h2>
             <div class="row">
-                @foreach($products as $product)
+                @foreach($products  as $product)
                     <div class="col-md-4 mb-4">
                         <div class="card" onclick="window.location.href='{{ route('admin.detail', $product->id) }}'">
                             <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}">

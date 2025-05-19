@@ -13,8 +13,11 @@ class Order extends Model
         'user_id',
         'total_price',
         'status',
+        'pesan',
         'alamat_pengiriman',
+
         'seller_message',  // Tambahkan ini supaya bisa mass assign
+        'bukti_pembayaran',
     ];
 
     // Relasi: Order milik satu User

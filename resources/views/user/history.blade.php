@@ -275,12 +275,31 @@ h2 {
                         <h6>Alamat Pengiriman:</h6>
                         <p>{{ $order->alamat_pengiriman }}</p>
                     </div>
-                    
-                    @if($order->status == 'pending')
-                        <div class="mt-3">
-                            <a href="#" class="btn btn-primary btn-sm">Upload Bukti Pembayaran</a>
-                        </div>
+
+                    {{-- @if($order->bukti_pembayaran)
+                    <div class="mt-3">
+                        <h6>Bukti Pembayaran:</h6>
+                        <img src="{{ asset($order->bukti_pembayaran) }}" alt="Bukti Pembayaran" style="max-width: 300px; border: 1px solid #ccc;">
+                    </div>
                     @endif
+                     --}}
+
+                   @if($order->status == 'pending')
+                    <div class="mt-3">
+                    @if($order->bukti_pembayaran)
+                        <div class="alert alert-success d-flex align-items-center" style="gap: 8px;">
+                            ✅ Bukti pembayaran sudah dikirim.
+                        </div>
+                    @else
+                        <form action="{{ route('orders.uploadBukti', $order->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="bukti_pembayaran" class="form-control mb-2" required>
+                            <button type="submit" class="btn btn-primary btn-sm">Upload Bukti Pembayaran</button>
+                        </form>
+                    @endif
+                </div>
+            @endif
+
                 </div>
             </div>
         @endforeach

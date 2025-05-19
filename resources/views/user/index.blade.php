@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <style>
         
@@ -22,7 +23,7 @@
             <span>&#9662;</span>
         </div>
         <div class="icons">
-            <a href="{{ route('admin.history') }}"><div class="icon cart-icon">&#128722;</div></a>
+            <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">
@@ -41,16 +42,17 @@
 
     <div class="navigation">
         <div class="nav">
-            <a href="{{ route('login') }}">LogOut</a>
-            <a href="{{ route('user.index') }}">Home</a>
-            <a href="{{ route('user.allproduk') }}">All Produk</a>
-            <a href="{{ route('user.tentang') }}">Tentang kami</a>
-            <a href="{{ route('user.kontak') }}">Kontak</a>
+            <a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('user.index') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('user.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
+            <a href="{{ route('user.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="{{ route('user.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
         </div>
     </div>
 
     <main>
         <div class="banner">
+
             <img src="https://img.freepik.com/premium-photo/various-kue-kering-cookies-lebaran-food-background_511235-11190.jpg" alt="Promo Spesial Bulan Ini">
     
             <div class="banner-text">
@@ -82,6 +84,29 @@
     @endforeach
 </div>
         </div>
+              <img src="https://img.freepik.com/premium-photo/various-kue-kering-cookies-lebaran-food-background_511235-11190.jpg" alt="Promo Spesial Bulan Ini">
+        </div>
+         <div class="banner-text">
+            <h1>Kue Kering Premium untuk Setiap Momen</h1>
+            <p>Kami hadir untuk memanjakan lidah Anda dengan kue kering berkualitas,  
+            dibuat dari bahan pilihan dan diproses dengan standar higienis serta teknologi modern.</p>
+         </div>
+
+            <h2>Best Products</h2>
+            <div class="row">
+                @foreach($bestProducts  as $product)
+                    <div class="col-md-4 mb-4">
+                        <div class="card" onclick="window.location.href='{{ route('user.detail', $product->id) }}'">
+                            <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $product->name }}</h5>
+                                <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+    </div>
     </main>
 
     <footer>
