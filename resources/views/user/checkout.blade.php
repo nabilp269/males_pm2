@@ -209,7 +209,7 @@
                 </div>
             </div>
 
-            <textarea  id="pesan" name="pesan" placeholder="Tulis pesan untuk penjual..." >{{ old('pesan') }}</textarea>
+            <textarea  name="seller_message" placeholder="Tulis pesan untuk penjual..." >{{ old('seller_message') }}</textarea>
 
             <div class="summary-section">
                 <div class="summary-row">

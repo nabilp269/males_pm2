@@ -83,7 +83,7 @@ class UserController extends Controller
         $request->validate([
             'quantity' => 'required|integer|min:1',
             'metode_pembayaran' => 'required|string|in:bni,bca,bri,dana,ovo,shopeepay',
-            'pesan' => 'required|string|max:255',
+            'seller_message' => 'required|string|max:255',
         ]);
 
         // Get the product
@@ -109,7 +109,7 @@ class UserController extends Controller
             'user_id' => Auth::id(),
             'total_price' => $total,
             'status' => 'pending',
-            'pesan'=> $request->pesan,
+            'seller_message'=> $request->seller_message,
             'alamat_pengiriman' => Auth::user()->alamat ?? 'Alamat belum diisi', // Get from user profile or add to checkout form
         ]);
 

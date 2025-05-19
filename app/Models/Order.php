@@ -12,7 +12,7 @@ class Order extends Model
         'user_id',
         'total_price',
         'status',
-        'pesan',
+        'seller_message',
         'alamat_pengiriman',
         'bukti_pembayaran',
     ];

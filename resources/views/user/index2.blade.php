@@ -445,7 +445,6 @@
             color: #664d00;
         }
         
-        /* Footer */
         footer {
             background-color: #664d00;
             color: white;
