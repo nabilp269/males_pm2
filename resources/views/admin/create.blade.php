@@ -43,6 +43,7 @@
             <a href="{{ route('admin.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
             <a href="{{ route('admin.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
             <a href="{{ route('admin.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
+            <a href="{{ route('admin.create') }}"><i class="fas fa-plus-circle"></i> Tambah Produk</a>
         </div>
     </div>
 
