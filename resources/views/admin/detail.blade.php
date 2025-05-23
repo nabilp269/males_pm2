@@ -87,14 +87,61 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center mt-5 py-3 bg-light">
-        <p>&copy; 2025 All Amazing Bread & Cake. All Rights Reserved.</p>
-        <div class="social-media">
-            <a href="#">Facebook</a> | 
-            <a href="#">Instagram</a> | 
-            <a href="#">Twitter</a>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">KB</div>
+                    <div class="footer-logo-text">Amazing Bread & Cake</div>
+                </div>
+                <p class="footer-description">
+                    Kami menyediakan berbagai pilihan roti dan kue dengan kualitas terbaik menggunakan bahan-bahan pilihan. Nikmati produk bakery kami yang dibuat dengan cinta dan dedikasi.
+                </p>
+                <div class="social-media">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="{{ route('admin.index') }}"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="{{ route('admin.allproduk') }}"><i class="fas fa-chevron-right"></i> Semua Produk</a></li>
+                        <li><a href="{{ route('admin.tentang') }}"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                        <li><a href="{{ route('admin.kontak') }}"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-bread-slice"></i> Roti</a></li>
+                        <li><a href="#"><i class="fas fa-birthday-cake"></i> Kue Ulang Tahun</a></li>
+                        <li><a href="#"><i class="fas fa-cookie"></i> Pastry</a></li>
+                        <li><a href="#"><i class="fas fa-cookie-bite"></i> Kue Kering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Kontak Kami</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Roti Enak No. 123, Jakarta</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +62 812-3456-7890</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@amazingbread.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Buka 07:00 - 21:00</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Amazing Bread & Cake. All Rights Reserved.</p>
         </div>
     </footer>
+    
 </body>
 </html>

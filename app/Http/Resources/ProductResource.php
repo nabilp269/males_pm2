@@ -21,6 +21,7 @@ class ProductResource extends JsonResource
             'description' => $this->name,
             'price' => $this->price,
             'stok' => $this->stok,
+            'kategori' => $this->kategori,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
         ];

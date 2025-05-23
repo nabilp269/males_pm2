@@ -76,6 +76,7 @@ class Productcontroller extends Controller
                 'description' => 'nullable|string',
                 'image_url' => 'nullable|url',
                 'stok' => "nullable|integer|min:0",
+                'kategori' => 'required|string|max:255'
             ]);
             
             $imagePath = $request->image_url ?? 'default-product.jpg';
@@ -86,6 +87,7 @@ class Productcontroller extends Controller
                 'description' => $request->description,
                 'image' => $imagePath,
                 'stok' => $request->stok,
+                'kategori'=>$request->kategori,
             ]);
 
      
@@ -119,6 +121,7 @@ class Productcontroller extends Controller
                 'price' => 'sometimes|numeric',
                 'image_url' => 'sometimes|nullable|url',
                 'stok' => 'sometimes|integer|min:0',
+                'kategori' => 'required|string|max:255'
             ]);
     
             $product = Product::findOrFail($id);

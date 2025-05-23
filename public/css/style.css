@@ -121,6 +121,7 @@ body {
 }
 .container {
     max-width: 1100px;
+    margin-bottom: 10vh;
 }
 .nav {
     display: flex;
@@ -185,6 +186,20 @@ h2 {
     border-bottom: 1px solid #ffe680;
     
 }
+
+.card-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background-color: #FF8C00;
+    color: white;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 .card-title {
     color: #664d00;
     font-weight: bold;
@@ -401,7 +416,8 @@ h2 {
 .container-tentang {
     max-width: 960px;
     margin: 1rem auto;
-    padding: 1rem;
+    margin-bottom: 10vh;
+    padding : 1rem;
 }
 
 .section-title {

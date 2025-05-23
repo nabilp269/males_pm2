@@ -78,6 +78,9 @@
                     <div class="col-md-4 mb-4">
                         <div class="card" onclick="window.location.href='{{ route('user.detail', $product->id) }}'">
                             <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}">
+                                @if(in_array($product->id, $bestSellerIDs))
+                                    <div class="card-ribbon">Best Seller</div>
+                                @endif
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->name }}</h5>
                                 <p class="card-text"><strong>Rp{{ number_format($product->price, 0, ',', '.') }}</strong></p>
