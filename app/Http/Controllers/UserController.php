@@ -21,16 +21,6 @@ class UserController extends Controller
         return view('user.index', compact('bestProducts'));
     }
 
-    public function show($id)
-    {
-        if (!is_numeric($id)) {
-            abort(404);
-        }
-
-        $product = Product::findOrFail($id);
-        return view('user.detail', compact('product'));
-    }
-
      public function allProduk(Request $request)
 {
     $query = Product::query();

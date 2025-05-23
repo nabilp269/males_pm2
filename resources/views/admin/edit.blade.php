@@ -11,9 +11,11 @@
 <body>
     <!-- Header -->
     <div class="header">
-        <div class="logo">KB</div>
-        <div class="category-dropdown">
-            Kategori <span>&#9662;</span>
+        <div class="logo">
+    <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Logo Kue" class="logo-img">
+</div>
+
+        <div class="">
         </div>
         <div class="icons">
             <div class="icon cart-icon">&#128722;</div>

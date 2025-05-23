@@ -14,11 +14,12 @@
 <body>
 
     <div class="header">
-        <div class="logo">KB</div>
-        <div class="category-dropdown">
-            Reinkarnasi Kategori
-        <span>&#9662;</span>
-        </div>
+        <div class="logo">
+    <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Logo Kue" class="logo-img">
+</div>
+
+        <div class=""></div>
+        
         <div class="icons">
             <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
             <div class="icon profile-icon">&#128100;</div>
@@ -98,9 +99,9 @@
                 <div class="footer-column">
                     <h4>Navigasi</h4>
                     <ul>
-                        <li><a href="{{ route('admin.index') }}"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="{{ route('admin.allproduk') }}"><i class="fas fa-chevron-right"></i> Semua Produk</a></li>
-                        <li><a href="{{ route('admin.tentang') }}"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                        <li><a href="{{ route('user.index') }}"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="{{ route('user.allproduk') }}"><i class="fas fa-chevron-right"></i> Semua Produk</a></li>
+                        <li><a href="{{ route('user.tentang') }}"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
                         <li><a href="{{ route('admin.kontak') }}"><i class="fas fa-chevron-right"></i> Kontak</a></li>
                     </ul>
                 </div>

@@ -12,10 +12,11 @@
 <body >
 
     <div class="header">
-        <div class="logo">KB</div>
-        <div class="category-dropdown">
-            Kategori
-            <span>&#9662;</span>
+        <div class="logo">
+    <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Logo Kue" class="logo-img">
+</div>
+
+        <div class="">
         </div>
         <div class="icons">
             <div class="icon cart-icon">&#128722;</div>
@@ -57,22 +58,26 @@
                 <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Tentang Kami">
             </div>
             <div class="about-content">
-                <h2>Sejarah Kue Basah</h2>
-                <p class="highlight">Kue basah</p>
-                <p>Kue Basah adalah jenis kue tradisional Indonesia yang memiliki tekstur lembut, moist (basah), dan biasanya tidak tahan lama karena tidak menggunakan pengawet. Kue ini sering disajikan dalam berbagai acara, seperti arisan, syukuran, atau sebagai camilan sehari-hari. Kue basah umumnya terbuat dari bahan-bahan alami seperti tepung beras, tepung ketan, santan, gula, dan daun pandan untuk aroma.</p>
-                <p><strong>Ciri-ciri Kue Basah:</strong><br>
-                    - Tekstur Lembut dan Basah<br>
-                    - Tidak Tahan Lama<br>
-                    - Rasa Manis atau Gurih
+                <h2>Sejarah Kue Kering</h2>
+                <p class="highlight">Kue Kering</p>
+                <p>KueKeringku adalah brand kue kering rumahan yang menghadirkan beragam pilihan kue kering lezat, renyah, dan dibuat dengan bahan-bahan berkualitas tinggi. Kami berkomitmen menyajikan rasa autentik yang menggugah selera, cocok untuk dinikmati bersama keluarga atau sebagai hantaran spesial di berbagai momen.
+                    Dengan resep turun-temurun dan sentuhan kekinian, kami percaya bahwa setiap gigitan membawa kehangatan dan kebahagiaan. Produk kami dibuat tanpa bahan pengawet, dengan proses higienis, dan penuh cinta.
                 </p>
+                
                 <div class="details">
                     <details>
                         <summary>VISI</summary>
-                        <p>Menjadi toko Kue basah pilihan utama di Indonesia.</p>
+                        <p>Menjadi brand kue kering lokal yang terpercaya dan digemari masyarakat Indonesia dengan cita rasa berkualitas dan tampilan menarik, baik di pasar online maupun offline.</p>
                     </details>
                     <details>
                         <summary>MISI</summary>
-                        <p>Menyediakan Kue basah berkualitas dengan harga terjangkau dan pelayanan terbaik.</p>
+                        <p>- Menyediakan kue kering berkualitas premium dengan harga yang terjangkau. <br> <br>
+                           - Mengembangkan inovasi rasa dan kemasan yang menarik sesuai selera konsumen. <br> <br>
+                           - Menjaga konsistensi dalam kualitas rasa, kebersihan, dan pelayanan pelanggan. <br> <br>
+                           - Memberdayakan pelaku UMKM dan tenaga kerja lokal dalam proses produksi. <br> <br>
+                           - Membangun kehadiran merek yang kuat melalui pemasaran digital dan pelayanan pelanggan yang ramah.<br>
+                        </p>
+
                     </details>
                 </div>
             </div>
