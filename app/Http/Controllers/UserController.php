@@ -37,7 +37,13 @@ class UserController extends Controller
 
     $products = $query->get();
 
-    return view('user.allproduk', compact('products'));
+    $bestSellerIDs = Product::withSum('orderItems as total_sold', 'quantity')
+    ->orderByDesc('total_sold')
+    ->take(6)
+    ->pluck('id')
+    ->toArray();
+
+    return view('user.allproduk', compact('products','bestSellerIDs'));
 }
 
 
@@ -73,7 +79,7 @@ class UserController extends Controller
         $request->validate([
             'quantity' => 'required|integer|min:1',
             'metode_pembayaran' => 'required|string|in:bni,bca,bri,dana,ovo,shopeepay',
-            'seller_message' => 'required|string|max:255',
+            'pesan' => 'required|string|max:255',
         ]);
 
         // Get the product
@@ -99,7 +105,7 @@ class UserController extends Controller
             'user_id' => Auth::id(),
             'total_price' => $total,
             'status' => 'pending',
-            'seller_message'=> $request->seller_message,
+            'pesan'=> $request->pesan,
             'alamat_pengiriman' => Auth::user()->alamat ?? 'Alamat belum diisi', // Get from user profile or add to checkout form
         ]);
 
