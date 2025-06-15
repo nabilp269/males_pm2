@@ -27,9 +27,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/kontak/send', [ProductController::class, 'sendContact'])->name('admin.kontak.send');
 
     // Checkout dan riwayat
-    Route::get('/admin/checkout/{id}', [ProductController::class, 'checkout'])->name('admin.checkout');
-    Route::post('admin/prosescheckout/{id}', [ProductController::class, 'processCheckout'])->name('admin.processCheckout');
-    Route::get('/history', [ProductController::class, 'history'])->name('admin.history');
+    Route::get('/admin/riwayat-pesanan', [ProductController::class, 'orderHistoryAdmin'])->name('admin.orderHistory');
+    Route::put('/admin/pesanan/{id}/update-status', [ProductController::class, 'updateStatus'])->name('admin.updateStatus');
+
 
     // Parameter routes (diletakkan paling bawah agar tidak konflik)
     Route::get('/admin/{id}', [ProductController::class, 'show'])->name('admin.detail');

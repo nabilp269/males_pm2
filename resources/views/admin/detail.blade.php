@@ -82,10 +82,6 @@
                         </button>
                     </form>
                 </div>
-
-                <div class="mt-4">
-                    <a href="{{ route('admin.checkout', $product->id) }}" class="btn btn-success btn-lg">Pesan Sekarang</a>
-                </div>
             </div>
         </div>
     </main>
