@@ -14,6 +14,7 @@ Route::post('/register', [UserController::class, 'register']);
 
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/produk', [UserController::class, 'allProduk']);
+Route::get('/produk', [UserController::class, 'allProduk']);
 
 
 // Route untuk logout (wajib pakai auth sanctum)

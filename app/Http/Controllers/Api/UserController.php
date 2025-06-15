@@ -126,7 +126,14 @@ class UserController extends Controller
                 ->pluck('id')
                 ->toArray();
 
-            return ProductResource::collection($products, $bestSellerIDs);
+                
+            return response()->json([
+                'status' => 'success',
+                'code' => 200,
+                'products' => ProductResource::collection($products),
+                'best_seller_ids' => $bestSellerIDs
+            ]);
+
 
         } catch (Exception $e) {
             return response()->json([
@@ -136,4 +143,5 @@ class UserController extends Controller
             ], 500);
         }
     }
+
 }

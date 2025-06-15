@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,21 +10,26 @@
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>
 
-<body >
+<body>
 
     <div class="header">
         <div class="logo">
-    <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740" alt="Logo Kue" class="logo-img">
-</div>
+            <img src="https://img.freepik.com/premium-vector/vector-logo-cookies-crunchy-desserts_1121638-47.jpg?semt=ais_hybrid&w=740"
+                alt="Logo Kue" class="logo-img">
+        </div>
         <div class="">
-    
+
         </div>
         <div class="icons">
-            <a href="{{ route('user.history') }}"><div class="icon cart-icon">&#128722;</div></a>
+            <a href="{{ route('user.history') }}">
+                <div class="icon cart-icon">&#128722;</div>
+            </a>
             <div class="icon profile-icon">&#128100;</div>
             <div class="icon instagram-icon">
                 <!-- Instagram Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #E1306C;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="color: #E1306C;">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -31,8 +37,12 @@
             </div>
             <div class="icon whatsapp-icon">
                 <!-- WhatsApp Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #25D366;">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="color: #25D366;">
+                    <path
+                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                    </path>
                 </svg>
             </div>
         </div>
@@ -44,7 +54,8 @@
             <a href="{{ route('user.index') }}"><i class="fas fa-home"></i> Home</a>
             <a href="{{ route('user.allproduk') }}"><i class="fas fa-bread-slice"></i> Semua Produk</a>
             <a href="{{ route('user.tentang') }}"><i class="fas fa-info-circle"></i> Tentang Kami</a>
-            <a href="{{ route('user.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a></div>
+            <a href="{{ route('user.kontak') }}"><i class="fas fa-envelope"></i> Kontak</a>
+        </div>
     </div>
 
     <div class="container-tentang">
@@ -57,29 +68,41 @@
                 <img src="https://cdn.linkumkm.id/library/1/2/0/6/1/2/120612_840x576.jpg" alt="Tentang Kami">
             </div>
             <div class="about-content">
-                <h2>Sejarah Kue Kering</h2>
-                <p class="highlight">Kue Kering</p>
-                <p>KueKeringku adalah brand kue kering rumahan yang menghadirkan beragam pilihan kue kering lezat, renyah, dan dibuat dengan bahan-bahan berkualitas tinggi. Kami berkomitmen menyajikan rasa autentik yang menggugah selera, cocok untuk dinikmati bersama keluarga atau sebagai hantaran spesial di berbagai momen.
-                    Dengan resep turun-temurun dan sentuhan kekinian, kami percaya bahwa setiap gigitan membawa kehangatan dan kebahagiaan. Produk kami dibuat tanpa bahan pengawet, dengan proses higienis, dan penuh cinta.
-                </p>
+                <h2>Tentang Amazing Bread & Cake</h2>
+                <p class="highlight">Roti & Kue Premium</p>
+                <p>Amazing Bread & Cake adalah brand bakery lokal yang menghadirkan beragam pilihan roti dan kue
+                    berkualitas tinggi. Kami menggunakan bahan-bahan pilihan dan proses yang higienis untuk menciptakan
+                    produk yang tidak hanya lezat, tetapi juga aman dan layak dinikmati semua kalangan.</p>
+                <p>Setiap produk kami dibuat dengan penuh cinta dan dedikasi, menghadirkan kehangatan dalam setiap
+                    gigitan. Kami percaya bahwa roti dan kue bukan hanya makanan, tetapi bagian dari momen berharga
+                    bersama keluarga dan orang terkasih.</p>
+                <p>Kami terus berinovasi agar tetap relevan dengan selera pasar, tanpa melupakan cita rasa klasik yang
+                    dicintai. Melalui layanan online maupun offline, kami berkomitmen memberikan yang terbaik kepada
+                    pelanggan kami di mana pun berada.</p>
 
+                <!-- Visi dan Misi (pakai yang sudah direvisi di atas) -->
                 <div class="details">
                     <details>
                         <summary>VISI</summary>
-                        <p>Menjadi brand kue kering lokal yang terpercaya dan digemari masyarakat Indonesia dengan cita rasa berkualitas dan tampilan menarik, baik di pasar online maupun offline.</p>
+                        <p>Menjadi brand roti dan kue lokal terpercaya yang digemari masyarakat Indonesia, dengan cita
+                            rasa istimewa, tampilan menarik, dan layanan terbaik baik secara online maupun offline.</p>
                     </details>
                     <details>
                         <summary>MISI</summary>
-                        <p>- Menyediakan kue kering berkualitas premium dengan harga yang terjangkau. <br> <br>
-                           - Mengembangkan inovasi rasa dan kemasan yang menarik sesuai selera konsumen. <br> <br>
-                           - Menjaga konsistensi dalam kualitas rasa, kebersihan, dan pelayanan pelanggan. <br> <br>
-                           - Memberdayakan pelaku UMKM dan tenaga kerja lokal dalam proses produksi. <br> <br>
-                           - Membangun kehadiran merek yang kuat melalui pemasaran digital dan pelayanan pelanggan yang ramah.<br>
+                        <p>
+                            - Menyediakan roti dan kue berkualitas tinggi dengan harga yang terjangkau.<br><br>
+                            - Terus berinovasi dalam pengembangan rasa dan desain kemasan sesuai tren dan kebutuhan
+                            konsumen.<br><br>
+                            - Menjaga konsistensi dalam cita rasa, kebersihan produksi, dan pelayanan pelanggan.<br><br>
+                            - Memberdayakan tenaga kerja lokal serta mendukung pertumbuhan UMKM dalam rantai
+                            produksi.<br><br>
+                            - Membangun kehadiran merek yang kuat melalui pemasaran digital dan pengalaman pelanggan
+                            yang menyenangkan.
                         </p>
-
                     </details>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -91,7 +114,8 @@
                     <div class="footer-logo-text">Amazing Bread & Cake</div>
                 </div>
                 <p class="footer-description">
-                    Kami menyediakan berbagai pilihan roti dan kue dengan kualitas terbaik menggunakan bahan-bahan pilihan. Nikmati produk bakery kami yang dibuat dengan cinta dan dedikasi.
+                    Kami menyediakan berbagai pilihan roti dan kue dengan kualitas terbaik menggunakan bahan-bahan
+                    pilihan. Nikmati produk bakery kami yang dibuat dengan cinta dan dedikasi.
                 </p>
                 <div class="social-media">
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -100,18 +124,20 @@
                     <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <div class="footer-column">
                     <h4>Navigasi</h4>
                     <ul>
                         <li><a href="{{ route('user.index') }}"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="{{ route('user.allproduk') }}"><i class="fas fa-chevron-right"></i> Semua Produk</a></li>
-                        <li><a href="{{ route('user.tentang') }}"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                        <li><a href="{{ route('user.allproduk') }}"><i class="fas fa-chevron-right"></i> Semua
+                                Produk</a></li>
+                        <li><a href="{{ route('user.tentang') }}"><i class="fas fa-chevron-right"></i> Tentang Kami</a>
+                        </li>
                         <li><a href="{{ route('user.kontak') }}"><i class="fas fa-chevron-right"></i> Kontak</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4>Kategori</h4>
                     <ul>
@@ -121,7 +147,7 @@
                         <li><a href="#"><i class="fas fa-cookie-bite"></i> Kue Kering</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4>Kontak Kami</h4>
                     <ul>
@@ -133,11 +159,12 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2025 Amazing Bread & Cake. All Rights Reserved.</p>
         </div>
     </footer>
 
 </body>
+
 </html>
